@@ -1,0 +1,270 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+body {
+	font-size: 20px;
+	font-family: 'Josefin Slab', serif;
+	/*font-family: 'Lato', sans-serif;*/
+}
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Josefin Slab', serif;
+	font-weight: 600;
+}
+h3 {
+	color: #011834;
+	font-weight: 700;
+}
+h4 {
+	font-size: 20px;
+	font-weight: 700;
+}
+a {
+
+}
+a:hover, 
+a:focus,
+a:active{
+	outline: 0;
+	text-decoration: none;
+}
+p {
+	color: #999999;
+	font-weight: 600;
+	font-family: 'Josefin Slab', serif;
+}
+input, textarea {
+	width: 100%;
+	padding: 8px 15px;
+	border: 1px solid #F8F8F8;
+}
+input:hover, textarea:hover, 
+input:focus, textarea:focus,
+input:active, textarea:active {
+	outline: 0;
+	text-decoration: none;
+	border-color: #164B6D;
+	
+}
+.transition {
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.social_media li a {
+	color: #999999;
+	padding-right: 10px;
+}
+.social_media li a:before {
+	padding-right: 10px;
+}
+.ion-social-facebook-outline {
+	color: #3B5998 !important;
+}
+.ion-social-twitter-outline {
+	color: #1B96E1 !important;
+}
+.ion-social-linkedin-outline {
+	color: #1D87BE !important;
+}
+.ion-social-googleplus-outline {
+	color: #CD453A !important;
+}
+/*--------------------------------------
+============Banner Css Start===========
+----------------------------------------*/
+header {
+    
+}
+
+/* Main Menu Css */
+.main_menu {
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 32px 0;
+    position: fixed;
+    border-color: transparent;
+    background-color: transparent;
+}
+.main_menu.tiny {
+	border: 0;
+	z-index: 20;
+	padding: 0px 0;
+    background-image: -webkit-linear-gradient(top, #fff 0, #f8f8f8 100%);
+    background-image: -o-linear-gradient(top, #fff 0, #f8f8f8 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f8f8f8));
+    background-image: linear-gradient(to bottom, #fff 0, #f8f8f8 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff8f8f8', GradientType=0);
+    filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+    -o-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+}
+.main_menu .navbar-brand {
+    color: #FFFFFF;
+    font-weight: 700;
+    background-color: #164a6d;
+    font-size: 20px;
+    font-family: 'Josefin Slab', serif;
+    padding: 10px 10px;
+    height: inherit;
+}
+.main_menu.tiny .navbar-brand {
+	margin-top: 5px;
+}
+.main_menu .nav li {
+
+}
+.main_menu .nav li a {
+    color: #212121;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+}
+@media (max-width: 776px) { 
+	.main_menu {
+		border: 0;
+		padding: 0px 0;
+	    background-image: -webkit-linear-gradient(top, #fff 0, #f8f8f8 100%);
+	    background-image: -o-linear-gradient(top, #fff 0, #f8f8f8 100%);
+	    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f8f8f8));
+	    background-image: linear-gradient(to bottom, #fff 0, #f8f8f8 100%);
+	    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff8f8f8', GradientType=0);
+	    filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
+	    background-repeat: repeat-x;
+	    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+	    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+	    -o-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+	    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+	}
+	.main_menu .navbar-brand {
+	    margin-left: 15px;
+	    margin-top: 5px;
+	}
+}
+/* Baner Content Css*/
+.bannder_content {
+    height: 100%;
+    background-size: cover;
+    background: url(img/banner_1.png) no-repeat top center;
+}
+.bannder_content .jumbotron {
+	background: transparent;
+	padding: 50vmin 0 0;
+}
+.bannder_content .jumbotron h4 {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    font-family: 'Lato', sans-serif;
+}
+.bannder_content .jumbotron h1 {
+    font-size: 45px;
+    color: #001733;
+    font-weight: 600;
+    font-family: 'Josefin Slab', serif;
+}
+/*--------------------------------------
+============About Me Css Start===========
+----------------------------------------*/
+.about_me {
+    overflow: hidden;
+    padding: 40px 0;
+}
+.about_me h3 {
+    margin-top: 0;
+}
+.about_me h4 {
+    padding: 30px 0;
+}
+/* Services Css Start */
+.services {
+
+}
+.services_single {
+    margin: 30px 0 0;
+}
+.services_single span {
+    font-size: 50px;
+    color: #001733;
+}
+.services_single h3 {
+    font-size: 20px;
+}
+/* Team Css Start */
+.team_single {
+    padding: 3px;
+    margin: 30px 0 0;
+    text-align: center;
+    border: 1px solid #F8F8F8;
+}
+
+.team_single:hover {
+    padding: 3px;
+    text-align: center;
+    border-color: transparent;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.team_single h3 {
+    font-size: 18px;
+    margin-top: 20px;
+}
+.team_single p {
+    font-size: 18px;
+}
+/*--------------------------------------
+============Testimonial Css Start===========
+----------------------------------------*/
+.testimonial {
+	color: #FFFFFF;
+    background-color: #001733;
+}
+.testimonial .testimonial_single {
+	padding: 100px 0;
+}
+.testimonial .testimonial_single p {
+	color: #FFFFFF;
+	font-size: 25px;
+    font-weight: 300;
+    padding-bottom: 50px;
+}
+.testimonial .testimonial_single h5.client_name {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    font-family: 'Lato', sans-serif;
+}
+.testimonial .testimonial_single span.client_location {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    font-family: 'Lato', sans-serif;
+}
+
+/*--------------------------------------
+============Footer Css Start===========
+----------------------------------------*/
+footer {
+	background-color: #010E1E;
+	padding: 30px 0;
+}
+footer .lead {
+	color: #FFF;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'Josefin Slab', serif;
+}
