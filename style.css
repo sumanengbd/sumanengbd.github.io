@@ -288,6 +288,10 @@ header {
 /*--------------------------------------
 ============Portfolio Css Start===========
 ----------------------------------------*/
+#portfolio {
+    overflow: hidden;
+}
+
 .portfolio_single {
     position: relative;
     margin-bottom: 30px;
