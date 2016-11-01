@@ -56,11 +56,60 @@ input:active, textarea:active {
 	border-color: #164B6D;
 	
 }
+.before_overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.before_overlay:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    background-color: #001733;
+}
 .transition {
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
+}
+.btn {
+    color: #001733;
+    font-size: 12px;
+    font-weight: 300;
+    border-radius: 0;
+    padding: 10px 15px;
+    letter-spacing: 3px;
+    border: 1px solid #fafafa;
+    text-transform: uppercase;
+}
+.btn_background {
+    color: #001733;
+    background-color: #FFF;
+}
+.btn_background:hover,
+.btn_background:focus,
+.btn_background:active {
+    color: #FFFFFF;
+    outline: 0;
+    background-color: transparent;
+    text-decoration: none;
+}
+.btn_none_background {
+    color: #FFF;
+    background-color: transparent;
+}
+.btn_none_background:hover,
+.btn_none_background:focus,
+.btn_none_background:active {
+    color: #001733;
+    background-color: #FFF;
+    outline: 0;
+    text-decoration: none;
 }
 .social_media li a {
 	color: #999999;
@@ -135,6 +184,12 @@ header {
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
 }
+.portfolio .main_menu .nav li a {
+    color: #FFFFFF;
+}
+.portfolio .main_menu.tiny .nav li a {
+    color: #212121;
+}
 @media (max-width: 776px) { 
 	.main_menu {
 		border: 0;
@@ -161,6 +216,9 @@ header {
     height: 100%;
     background-size: cover;
     background: url(img/banner_1.png) no-repeat top center;
+}
+.bannder_content.before_overlay .jumbotron h1 {
+    color: #FFF;
 }
 .bannder_content .jumbotron {
 	background: transparent;
@@ -226,6 +284,47 @@ header {
 .team_single p {
     font-size: 18px;
 }
+
+/*--------------------------------------
+============Portfolio Css Start===========
+----------------------------------------*/
+.portfolio_single {
+    position: relative;
+    margin-bottom: 30px;
+}
+.portfolio_single .portfolio_img {
+
+}
+.portfolio_single .portfolio_img img {
+
+}
+.portfolio_single .portfolio_content {
+    top: 6px;
+    left: 30px;
+    position: absolute;
+}
+.portfolio_single .portfolio_content h2 {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+.portfolio_single .portfolio_content p {
+    color: #FFFFFF;
+}
+.portfolio_single .portfolio_content a {
+    border-radius: 50px;
+}   
+/*--------------------------------------
+============Brand Css Start===========
+----------------------------------------*/
+.brand {
+    padding: 60px 0;
+}
+.brand ul {
+}
+.brand ul li {
+    padding: 10px 18px;
+}
+
 /*--------------------------------------
 ============Testimonial Css Start===========
 ----------------------------------------*/
