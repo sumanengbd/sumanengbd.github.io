@@ -239,7 +239,7 @@ header {
 @media (max-width: 776px) { 
     .bannder_content.before_overlay .jumbotron h1 {
         color: #FFF;
-        font-size: 20px;
+        font-size: 25px;
     }
 }
 /*--------------------------------------
