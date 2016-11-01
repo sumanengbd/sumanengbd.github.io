@@ -83,6 +83,7 @@ input:active, textarea:active {
     font-weight: 300;
     border-radius: 0;
     padding: 10px 15px;
+    margin-bottom: 10px;
     letter-spacing: 3px;
     border: 1px solid #fafafa;
     text-transform: uppercase;
