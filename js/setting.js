@@ -12,6 +12,39 @@ $(document).ready(function() {
 		}
 	});
 
+	/* Testimonial */
+	$('.testimonial_slider').slick({
+		autoplay: true,
+		arrows: true,
+		dots: true,
+		draggable: true,
+		fade: false,
+		infinite: true
+	});
+
+
+	$('.magnific_gallery').each(function(index , value){
+	  var gallery = $(this);
+	  var galleryImages = $(this).data('links').split(',');
+	    var items = [];
+	    for(var i=0;i<galleryImages.length; i++){
+	      items.push({
+	        src:galleryImages[i],
+	        title:''
+	      });
+	    }
+	    gallery.magnificPopup({
+	      mainClass: 'mfp-fade',
+	      items:items,
+	      gallery:{
+	        enabled:true,
+	        tPrev: $(this).data('prev-text'),
+	        tNext: $(this).data('next-text')
+	      },
+	      type: 'image'
+	    });
+	});
+
 	/* Smooth scroll */
 	$(function() {
 	  $('.smoothScroll, .smoothScroll>a').click(function() {

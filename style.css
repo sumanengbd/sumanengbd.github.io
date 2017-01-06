@@ -152,6 +152,7 @@ header {
 	border: 0;
 	z-index: 20;
 	padding: 0px 0;
+	border-radius: 0;
     background-image: -webkit-linear-gradient(top, #fff 0, #f8f8f8 100%);
     background-image: -o-linear-gradient(top, #fff 0, #f8f8f8 100%);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f8f8f8));
@@ -165,19 +166,21 @@ header {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
 }
 .main_menu .navbar-brand {
-    color: #FFFFFF;
+    color: #164a6d;
     font-weight: 700;
-    background-color: #164a6d;
     font-size: 20px;
     font-family: 'Josefin Slab', serif;
-    padding: 10px 10px;
+    padding: 5px 10px;
     height: inherit;
+    display: inline-flex;
+    align-items: center;
 }
-.main_menu.tiny .navbar-brand {
-	margin-top: 5px;
+.main_menu .navbar-brand span {
+    margin: 0 10px 4px 0;
+    font-size: 40px;
 }
-.main_menu .nav li {
-
+.portfolio .main_menu.tiny .navbar-brand {
+    color: #164a6d;
 }
 .main_menu .nav li a {
     color: #212121;
@@ -185,8 +188,13 @@ header {
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
 }
-.portfolio .main_menu .nav li a {
-    color: #FFFFFF;
+@media (min-width: 776px) {
+    .portfolio .main_menu .navbar-brand {
+        color: #FFF;
+    }
+    .portfolio .main_menu .nav li a {
+        color: #FFFFFF;
+    }
 }
 .portfolio .main_menu.tiny .nav li a {
     color: #212121;
@@ -262,13 +270,59 @@ header {
 }
 .services_single {
     margin: 30px 0 0;
+    display: inline-flex;
+    justify-content: center;
 }
-.services_single span {
-    font-size: 50px;
+.service_icon {
+    padding-right: 30px;
+    padding-top: 72px;
+    position: relative;
+}
+.service_icon span {
+    font-size: 33px;
     color: #001733;
 }
-.services_single h3 {
+.service_content {
+    display: table;
+    padding-left: 20px;
+    position: relative;
+}
+.service_content h3 {
+   padding-top: 15px;
     font-size: 20px;
+}
+.service_content_body {
+    padding-bottom: 10px;
+    padding-right: 50px;
+}
+.service_icon::before {
+    border-bottom: 1px solid #333;
+    bottom: 0px;
+    content: "";
+    height: 15px;
+    position: absolute;
+    transition: .10s linear ease-in;
+    right: 0px;
+    width: 0px;
+}
+.services_single:hover .service_icon::before {
+    width: 100%;
+    transition: all .10s linear .25s;
+}
+.service_content::before {
+    border-left: 1px solid #333;
+    border-top: 1px solid #333;
+    content: "";
+    height: 15px;
+    left: 0px;
+    position: absolute;
+    transition: all .30s linear;
+    top: 0px;
+    width: 15px;
+}
+.services_single:hover .service_content::before {
+    width: 64px;
+    height: 100%;
 }
 /* Team Css Start */
 .team_single {
@@ -323,7 +377,18 @@ header {
 }
 .portfolio_single .portfolio_content a {
     border-radius: 50px;
-}   
+}  
+
+/* Magnific Gellary Popup Plugin */
+.mfp-image-holder .mfp-content {
+    max-width: 85%;
+}
+.mfp-arrow {
+    position: fixed;
+}
+img.mfp-img {
+    max-height: none !important;
+}
 /*--------------------------------------
 ============Brand Css Start===========
 ----------------------------------------*/
@@ -341,10 +406,12 @@ header {
 ----------------------------------------*/
 .testimonial {
 	color: #FFFFFF;
+    overflow: hidden;
     background-color: #001733;
 }
 .testimonial .testimonial_single {
 	padding: 100px 0;
+    outline: 0;
 }
 .testimonial .testimonial_single p {
 	color: #FFFFFF;
