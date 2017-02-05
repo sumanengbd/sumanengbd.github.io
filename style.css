@@ -356,6 +356,8 @@ header {
 .portfolio_single {
     position: relative;
     margin-bottom: 30px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 .portfolio_single .portfolio_img {
 
