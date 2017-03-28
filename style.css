@@ -97,7 +97,8 @@ input:active, textarea:active {
 .btn_background:active {
     color: #FFFFFF;
     outline: 0;
-    background-color: transparent;
+    background-color: #333;
+    border-color: #333;
     text-decoration: none;
 }
 .btn_none_background {
@@ -360,26 +361,64 @@ header {
     overflow: hidden;
 }
 .portfolio_single .portfolio_img {
-
+    position: relative;
 }
 .portfolio_single .portfolio_img img {
-
+    width: 100%;
+}
+.portfolio_single .portfolio_img .hover_content {
+    top: 0px;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.portfolio_single .portfolio_img .hover_content .btn {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .portfolio_single .portfolio_content {
-    top: 6px;
-    left: 30px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    background-color: #333;
+}
+.portfolio_single .portfolio_content:before {
+    content: '';
+    left: 0;
+    width: 0;
+    right: 0;
+    top: -40px;
+    margin: 0 auto;
     position: absolute;
+    border: 20px solid transparent;
+    border-bottom-color: #333;
 }
 .portfolio_single .portfolio_content h2 {
-    color: #FFFFFF;
+    margin: 0;
+    color: #fff;
     font-weight: 600;
 }
 .portfolio_single .portfolio_content p {
-    color: #FFFFFF;
+    margin: 0;
 }
 .portfolio_single .portfolio_content a {
-    border-radius: 50px;
-}  
+    //border-radius: 50px;
+} 
+
+/* Hover */
+.portfolio_single:hover .portfolio_img .hover_content {
+    opacity: 1;
+    background: rgba(0,0,0,0.5);
+}
 
 /* Magnific Gellary Popup Plugin */
 .mfp-image-holder .mfp-content {
