@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="425" height="291" viewBox="0 0 425 291">
+  <g id="call-action__form" transform="translate(-723 -6003)">
+    <g id="Rectangle_174" data-name="Rectangle 174" transform="translate(723 6033)" fill="#e9eef9" stroke="#e1e7f4" stroke-width="1">
+      <rect width="424" height="56" rx="6" stroke="none"/>
+      <rect x="0.5" y="0.5" width="423" height="55" rx="5.5" fill="none"/>
+    </g>
+    <g id="Rectangle_175" data-name="Rectangle 175" transform="translate(723 6152)" fill="#e9eef9" stroke="#e1e7f4" stroke-width="1">
+      <rect width="424" height="56" rx="6" stroke="none"/>
+      <rect x="0.5" y="0.5" width="423" height="55" rx="5.5" fill="none"/>
+    </g>
+    <g id="Rectangle_176" data-name="Rectangle 176" transform="translate(723 6244)" fill="#e9eef9" stroke="#e1e7f4" stroke-width="1">
+      <rect width="24" height="24" rx="6" stroke="none"/>
+      <rect x="0.5" y="0.5" width="23" height="23" rx="5.5" fill="none"/>
+    </g>
+    <rect id="Rectangle_177" data-name="Rectangle 177" width="157" height="56" rx="6" transform="translate(991 6238)" fill="#1b3054"/>
+    <text id="First_Name" data-name="First Name" transform="translate(723 6018)" fill="#1b3054" font-size="18" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">First Name</tspan></text>
+    <text id="Subscribe" transform="translate(1030 6273)" fill="#fff" font-size="18" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">Subscribe</tspan></text>
+    <text id="Email_Address" data-name="Email Address" transform="translate(723 6137)" fill="#1b3054" font-size="18" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">Email Address</tspan></text>
+    <text id="I_agree_to_the_Terms_Conditions" data-name="I agree to the
+Terms &amp; Conditions" transform="translate(755 6260)" fill="#1b3054" font-size="16" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">I agree to the</tspan><tspan text-decoration="underline"><tspan x="0" y="22">Terms &amp; Conditions</tspan></tspan></text>
+    <circle id="Ellipse_27" data-name="Ellipse 27" cx="7" cy="7" r="7" transform="translate(728 6249)" fill="#1b3054"/>
+  </g>
+</svg>

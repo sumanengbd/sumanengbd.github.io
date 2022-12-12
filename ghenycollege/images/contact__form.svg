@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="475" height="345" viewBox="0 0 475 345">
+  <g id="contact__form" transform="translate(-748 -302)">
+    <g id="Group_189" data-name="Group 189" transform="translate(-95.306 12)">
+      <g id="Rectangle_257" data-name="Rectangle 257" transform="translate(843.306 290)" fill="#fff" stroke="#e1e7f4" stroke-width="1">
+        <rect width="470" height="42" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="469" height="41" rx="5.5" fill="none"/>
+      </g>
+      <g id="Rectangle_286" data-name="Rectangle 286" transform="translate(843.306 396)" fill="#fff" stroke="#e1e7f4" stroke-width="1">
+        <rect width="470" height="42" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="469" height="41" rx="5.5" fill="none"/>
+      </g>
+      <g id="Rectangle_261" data-name="Rectangle 261" transform="translate(843.306 342)" fill="#fff" stroke="#e1e7f4" stroke-width="1">
+        <rect width="470" height="42" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="469" height="41" rx="5.5" fill="none"/>
+      </g>
+      <g id="Rectangle_285" data-name="Rectangle 285" transform="translate(843.306 448)" fill="#fff" stroke="#e1e7f4" stroke-width="1">
+        <rect width="470" height="125" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="469" height="124" rx="5.5" fill="none"/>
+      </g>
+      <text id="Email_Address" data-name="Email Address" transform="translate(861.306 317)" fill="#1b3054" font-size="16" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">Email Address</tspan></text>
+      <text id="Email_Address-2" data-name="Email Address" transform="translate(861.306 423)" fill="#1b3054" font-size="16" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">Email Address</tspan></text>
+      <text id="Password" transform="translate(861.306 369)" fill="#1b3054" font-size="16" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">Password</tspan></text>
+      <text id="Password-2" data-name="Password" transform="translate(861.306 475)" fill="#1b3054" font-size="16" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">Password</tspan></text>
+    </g>
+    <rect id="Rectangle_38" data-name="Rectangle 38" width="475" height="42" rx="21" transform="translate(748 605)" fill="#feda48"/>
+    <text id="Submit_Message" data-name="Submit Message" transform="translate(766 632)" fill="#1b3054" font-size="16" font-family="CircularStd-Book, Circular Std Book"><tspan x="0" y="0">Submit Message</tspan></text>
+    <path id="np_right_934660_000000" d="M18,11a1.166,1.166,0,0,0-.29-.722L12,4.325a1.248,1.248,0,0,0-1.562-.088,1.078,1.078,0,0,0,.011,1.531l4.018,4.179H4.071a1.05,1.05,0,1,0,0,2.1H14.462l-4.018,4.179a1.139,1.139,0,0,0-.011,1.531A1.231,1.231,0,0,0,12,17.67l5.714-5.95A1,1,0,0,0,18,11Z" transform="translate(1181 615.001)" fill="#1b3054"/>
+  </g>
+</svg>
