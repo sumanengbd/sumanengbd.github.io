@@ -7215,18 +7215,3 @@ WOOCOMMERCE STYLES
 
 @import 'basic';
 @import 'responsive';
-
-.goingclear {
-	color: #666666;
-	font-size: 9px;
-	margin-top: 5px;
-	text-align: center;
-}
-
-@media screen and (max-width: 1000px) {
-	.goingclear {
-		margin-top: 10px;
-		text-align: center;
-		margin-bottom: 15px;
-	}
-}
