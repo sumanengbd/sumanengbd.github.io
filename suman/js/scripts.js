@@ -85,8 +85,6 @@
 
 	function addSwipeFunctionality() {
 	    var screenWidth = window.innerWidth || document.documentElement.clientWidth;
-
-	    console.log(screenWidth);
 	  
 	    if (screenWidth < 768) {
 	        $('body').swipe({
