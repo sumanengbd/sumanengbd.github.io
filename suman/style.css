@@ -424,14 +424,20 @@ select:focus, textarea:hover, textarea:focus {
     line-height: 22px;
     background: #3413FF;
     border-radius: 500px;
-    padding: 12px 16px 10px;
+    padding: 12px 20px 10px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.12), 0px 12px 24px rgba(0, 0, 0, 0.12);
             box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.12), 0px 12px 24px rgba(0, 0, 0, 0.12);
 }
 
-.btn:hover, .btn:focus, .btn:active {
+.btn.btn-medium {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 17px 30px 15px;
+}
+
+.btn:hover, .btn:focus {
     outline: 0;
     color: #FFFFFF;
     background: #042742;
@@ -811,7 +817,7 @@ HEADER STYLES
     background: #042742;
 }
 
-.header .navbar .navbar-collapse .navbar-nav > li:hover > a, .header .navbar .navbar-collapse .navbar-nav > li:focus > a {
+.header .navbar .navbar-collapse .navbar-nav > li.active > a, .header .navbar .navbar-collapse .navbar-nav > li:hover > a, .header .navbar .navbar-collapse .navbar-nav > li:focus > a {
     color: #3413FF;
 }
 
@@ -1129,10 +1135,7 @@ HOME STYLES
 }
 
 .banner__content .btn {
-    font-size: 18px;
-    line-height: 28px;
     margin-right: 15px;
-    padding: 17px 30px 15px;
 }
 
 .banner__content .button-group {
@@ -1207,11 +1210,66 @@ HOME STYLES
 /***********************************
 FOOTER STYLES
 ***********************************/
+.callaction {
+    z-index: 1;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.callaction:before {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    content: "";
+    height: 60%;
+    z-index: -1;
+    position: absolute;
+    background: #F9FBFC;
+}
+
+.callaction__content {
+    -webkit-column-gap: 15px;
+       -moz-column-gap: 15px;
+            column-gap: 15px;
+}
+
+.callaction__content .title {
+    color: #FFFFFF;
+}
+
+.callaction__content .description {
+    max-width: 480px;
+}
+
+.callaction__content .description p {
+    color: #FFFFFF;
+}
+
+.callaction__content .btn {
+    color: #FFFFFF;
+    background: transparent;
+    border: 2px solid #3413FF;
+}
+
+.callaction__content .btn:hover, .callaction__content .btn:focus {
+    color: #FFFFFF;
+    background: #3413FF;
+}
+
+.callaction__background {
+    padding: 60px 40px;
+    border-radius: 12px;
+    background: #042742;
+    -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.12), 0px 12px 24px rgba(0, 0, 0, 0.12);
+            box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.12), 0px 12px 24px rgba(0, 0, 0, 0.12);
+}
+
 .footer {
     overflow: hidden;
     position: relative;
     background: #F9FBFC;
-    padding: 50px 0 30px;
+    padding: 60px 0 30px;
 }
 
 .footer .social-media li a {
@@ -1267,7 +1325,7 @@ FOOTER STYLES
     transition: all 0.3s ease;
 }
 
-.footer__menu li.active > a, .footer__menu li:hover > a, .footer__menu li:focus > a {
+.footer__menu li:hover > a, .footer__menu li:focus > a {
     color: #3413FF;
     text-decoration: underline;
 }
@@ -1338,7 +1396,7 @@ FOOTER STYLES
     transition: all 0.3s ease;
 }
 
-.footer__privacy-menu li.active > a, .footer__privacy-menu li:hover > a, .footer__privacy-menu li:focus > a {
+.footer__privacy-menu li:hover > a, .footer__privacy-menu li:focus > a {
     color: #3413FF;
     text-decoration: underline;
 }
@@ -1392,6 +1450,11 @@ MEDIA QUERIES
     body:before, body:after {
         width: 4px;
     }
+    .btn.btn-medium {
+        font-size: 16px;
+        line-height: 26px;
+        padding: 15px 25px 13px;
+    }
     .container-fluid {
         padding-left: 15px;
         padding-right: 15px;
@@ -1419,11 +1482,6 @@ MEDIA QUERIES
     .banner {
         padding: 100px 0;
     }
-    .banner__content .btn {
-        font-size: 16px;
-        line-height: 26px;
-        padding: 15px 25px 13px;
-    }
 }
 
 /* 1199 */
@@ -1438,6 +1496,9 @@ MEDIA QUERIES
     }
     body:before, body:after {
         width: 2px;
+    }
+    .btn.btn-medium {
+        padding: 13px 20px 11px;
     }
     .container {
         padding-left: 20px;
@@ -1465,9 +1526,6 @@ MEDIA QUERIES
     .banner {
         padding: 80px 0;
     }
-    .banner__content .btn {
-        padding: 13px 20px 11px;
-    }
 }
 
 /* 991 */
@@ -1491,6 +1549,15 @@ MEDIA QUERIES
     h5, .h5 {
         font-size: 20px;
         line-height: 28px;
+    }
+    .btn {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .btn.btn-medium {
+        font-size: 14px;
+        line-height: 24px;
+        padding: 11px 18px 10px;
     }
     .desc-big {
         font-size: 18px;
@@ -1517,10 +1584,7 @@ MEDIA QUERIES
         padding: 60px 0;
     }
     .banner__content .btn {
-        font-size: 14px;
-        line-height: 24px;
         margin-right: 8px;
-        padding: 11px 18px 10px;
     }
     .banner__content .social-media li:last-child {
         display: none;
@@ -1528,6 +1592,18 @@ MEDIA QUERIES
     /***********************************
     FOOTER STYLES
     ***********************************/
+    .callaction__content .title {
+        margin-bottom: 10px;
+    }
+    .callaction__content .btn {
+        margin-top: 20px;
+    }
+    .callaction__background {
+        padding: 50px 30px;
+    }
+    .footer {
+        padding-top: 50px;
+    }
     .footer .social-media {
         margin-top: 20px;
     }
@@ -1569,6 +1645,10 @@ MEDIA QUERIES
         font-size: 16px;
         line-height: 22px;
     }
+    .desc-big {
+        font-size: 16px;
+        line-height: 24px;
+    }
     section {
         padding: 30px 0;
     }
@@ -1595,12 +1675,6 @@ MEDIA QUERIES
     .banner__content {
         text-align: center;
     }
-    .banner__content .btn {
-        font-size: 14px;
-        line-height: 24px;
-        margin-right: 8px;
-        padding: 11px 18px 10px;
-    }
     .banner__content .social-media li:last-child {
         display: none;
     }
@@ -1613,6 +1687,12 @@ MEDIA QUERIES
     /***********************************
     FOOTER STYLES
     ***********************************/
+    .callaction__content .title {
+        margin-bottom: 5px;
+    }
+    .callaction__background {
+        padding: 40px 30px;
+    }
     .footer {
         padding-top: 40px;
     }
@@ -1632,9 +1712,6 @@ MEDIA QUERIES
     .header .navbar .navbar-collapse .navbar-nav.navbar-nav-right > li:nth-child(2):not(.mobile-navbar-toggler) {
         display: none;
     }
-    /***********************************
-    HOME STYLES
-    ***********************************/
 }
 
 /* 480 */

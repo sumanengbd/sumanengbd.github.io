@@ -133,11 +133,17 @@ select, textarea {
 	line-height: 22px;
 	background: $base;
 	border-radius: 500px;
-	padding: 12px 16px 10px;
+	padding: 12px 20px 10px;
 	@include transition(all 0.3s ease);
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.12), 0px 12px 24px rgba(0, 0, 0, 0.12);
 
-	&:hover, &:focus, &:active {
+	&.btn-medium {
+		font-size: 18px;
+	    line-height: 28px;
+	    padding: 17px 30px 15px;
+	}
+
+	&:hover, &:focus {
 		outline: 0;
 		color: $white;
 		background: $primary;
@@ -334,7 +340,7 @@ HEADER STYLES
     					}
     				}
 
-    				&:hover, &:focus {
+    				&.active, &:hover, &:focus {
 
     					> a {
     						color: $base;
@@ -666,10 +672,7 @@ HOME STYLES
 		}
 
 		.btn {
-		    font-size: 18px;
-		    line-height: 28px;
 			margin-right: 15px;
-		    padding: 17px 30px 15px;
 		}
 
 		.button-group {
@@ -746,11 +749,63 @@ HOME STYLES
 /***********************************
 FOOTER STYLES
 ***********************************/
+.callaction {
+	z-index: 1;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+
+	&:before {
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		content: "";
+		height: 60%;
+		z-index: -1;
+		position: absolute;
+		background: #F9FBFC;
+	}
+
+	&__content {
+		column-gap: 15px;
+
+		.title {
+			color: $white;
+		}
+
+		.description {
+			max-width: 480px;
+
+			p {
+				color: $white;
+			}
+		}
+
+		.btn {
+			color: $white;
+			background: transparent;
+			border: 2px solid $base;
+
+			&:hover, &:focus {
+				color: $white;
+				background: $base;
+			}
+		}
+	}
+
+	&__background {
+		padding: 60px 40px;
+		border-radius: 12px;
+		background: $primary;
+		box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.12), 0px 12px 24px rgba(0, 0, 0, 0.12);
+	}
+}
+
 .footer {
 	overflow: hidden;
 	position: relative;
 	background: #F9FBFC;
-	padding: 50px 0 30px;
+	padding: 60px 0 30px;
 
 	.social-media {
 
@@ -810,7 +865,7 @@ FOOTER STYLES
 				@include transition(all 0.3s ease);
 			}
 
-			&.active, &:hover, &:focus {
+			&:hover, &:focus {
 
 				> a {
 					color: $base;
@@ -903,7 +958,7 @@ FOOTER STYLES
 				@include transition(all 0.3s ease);
 			}
 
-			&.active, &:hover, &:focus {
+			&:hover, &:focus {
 
 				> a {
 					color: $base;

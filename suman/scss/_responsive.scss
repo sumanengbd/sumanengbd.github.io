@@ -28,6 +28,15 @@ MEDIA QUERIES
         }
     }
 
+    .btn {
+
+        &.btn-medium    {
+            font-size: 16px;
+            line-height: 26px;
+            padding: 15px 25px 13px;
+        }
+    }
+
     .container-fluid {
         padding-left: 15px;
         padding-right: 15px;
@@ -73,15 +82,6 @@ MEDIA QUERIES
     ***********************************/
     .banner {
         padding: 100px 0;
-
-        &__content {
-
-            .btn {
-                font-size: 16px;
-                line-height: 26px;
-                padding: 15px 25px 13px;
-            }
-        }
     } 
 
 }/* 1199 */
@@ -96,6 +96,13 @@ MEDIA QUERIES
 
         &:before, &:after {
             width: 2px;
+        }
+    }
+
+    .btn {
+
+        &.btn-medium    {
+            padding: 13px 20px 11px;
         }
     }
 
@@ -146,13 +153,6 @@ MEDIA QUERIES
     ***********************************/
     .banner {
         padding: 80px 0; 
-
-        &__content {
-
-            .btn {
-                padding: 13px 20px 11px;
-            }
-        }
     } 
 
 
@@ -165,6 +165,17 @@ MEDIA QUERIES
     h3, .h3 { font-size: 30px; line-height: 36px; }
     h4, .h4 { font-size: 24px; line-height: 32px; }
     h5, .h5 { font-size: 20px; line-height: 28px; }
+
+    .btn {
+        font-size: 14px;
+        line-height: 24px;
+
+        &.btn-medium    {
+            font-size: 14px;
+            line-height: 24px;
+            padding: 11px 18px 10px;
+        }
+    }
 
     .desc-big {
         font-size: 18px;
@@ -218,10 +229,7 @@ MEDIA QUERIES
         &__content {
 
             .btn {
-                font-size: 14px;
-                line-height: 24px;
                 margin-right: 8px;
-                padding: 11px 18px 10px;
             }
 
             .social-media {
@@ -234,12 +242,31 @@ MEDIA QUERIES
                 }
             }
         }
-    } 
+    }
     
     /***********************************
     FOOTER STYLES
     ***********************************/
+    .callaction {
+
+        &__content {
+
+            .title {
+                margin-bottom: 10px;
+            }
+            
+            .btn {
+                margin-top: 20px;
+            }
+        }
+
+        &__background {
+            padding: 50px 30px;
+        }
+    }
+
     .footer {
+        padding-top: 50px;
 
         .social-media {
             margin-top: 20px;
@@ -286,6 +313,11 @@ MEDIA QUERIES
     h5, .h5 { font-size: 18px; line-height: 24px; }
     h6, .h6 { font-size: 16px; line-height: 22px; }
 
+    .desc-big {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
     section {
         padding: 30px 0;
     }
@@ -323,13 +355,6 @@ MEDIA QUERIES
         &__content {
             text-align: center;
 
-            .btn {
-                font-size: 14px;
-                line-height: 24px;
-                margin-right: 8px;
-                padding: 11px 18px 10px;
-            }
-
             .social-media {
 
                 li {
@@ -343,9 +368,9 @@ MEDIA QUERIES
 
         &__media {
             margin-top: 30px;
-                max-width: 300px;
-                margin-left: auto;
-                margin-right: auto;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
 
             .rounded-image {
             }
@@ -355,6 +380,20 @@ MEDIA QUERIES
     /***********************************
     FOOTER STYLES
     ***********************************/
+    .callaction {
+
+        &__content {
+
+            .title {
+                margin-bottom: 5px;
+            }
+        }
+
+        &__background {
+            padding: 40px 30px;
+        }
+    }
+
     .footer {
         padding-top: 40px;
 
@@ -398,10 +437,6 @@ MEDIA QUERIES
             }
         }
     }
-
-    /***********************************
-    HOME STYLES
-    ***********************************/
    
 }/* 480 */
 
