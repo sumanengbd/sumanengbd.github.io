@@ -685,11 +685,16 @@ HOME STYLES
 
 		.rounded-image {
 			overflow: hidden;
+			position: relative;
 			border-radius: 500px;
 
 			img {
 				width: 100%;
 				height: auto;
+		  		animation: sliderShape 5s linear infinite;
+				-webkit-animation: sliderShape 5s linear infinite;
+		  		will-change: border-radius, transform, opacity;
+				border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
 			}
 		}
 
@@ -994,6 +999,9 @@ FOOTER STYLES
 		border-top: 1px solid #EDEFF1;
 	}
 }
+
+// HELPER
+@import 'helper';
 
 // RESPONSIVE
 @import 'responsive';

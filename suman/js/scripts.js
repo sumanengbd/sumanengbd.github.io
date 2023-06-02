@@ -201,5 +201,43 @@
 	    });
 	});
 
+	// Banner Image Load
+	const albumID = '9tUzkubVAE7jNH1w9';
+    const getImageUrl = async () => {
+        const response = await axios.get(
+            `https://google-photos-album-demo2.glitch.me/${albumID}`
+        );
+        const photos = response.data;
+        const randomPhotoIndex = Math.floor(Math.random() * photos.length);
+        return photos[randomPhotoIndex] + "=w1200";
+    };
+
+    const setImageUrl = async () => {
+        const imageLoad = document.getElementById("imageLoad");
+        const imgElement = imageLoad.getElementsByTagName("img")[0];
+        const imageUrl = await getImageUrl();
+
+        console.log(imageUrl);
+
+        if ( imageUrl !== 'undefined=w1200' ) {
+
+	        $(imageLoad).LoadingOverlay("show"); // Show loading overlay
+
+	        const img = document.createElement('img');
+	        imageLoad.appendChild(img);
+
+	        imgElement.addEventListener("load", () => {
+	            $(imageLoad).LoadingOverlay("hide"); // Hide loading overlay
+
+	            // Set the image's alt text once it has fully loaded
+	            imgElement.alt = "Suman Ali - Full Stack Web Developer";
+	        });
+
+	        imgElement.src = imageUrl;
+        }
+    };
+
+    setImageUrl();
+
 
 }(jQuery));
