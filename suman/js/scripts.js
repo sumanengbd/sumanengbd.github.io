@@ -239,5 +239,34 @@
 
     setImageUrl();
 
+    /*** Call Sly on frame */
+    $('.slyslider__wrapper').each(function(i, l) {
+
+    	var $sly_frame = $(this),
+    	    $slide = $sly_frame.children('.slyslider').eq(0),
+    	    $sly_wrap  = $sly_frame.parent();
+
+    	$(this).sly({
+    		smart: 1,
+    		speed: 300,
+    		horizontal: 1,
+    		mouseDragging: 1,
+    		releaseSwing: 1,
+    		touchDragging: 1,
+    		itemNav: 'basic',
+    		scrollBy: 1,
+    		clickBar: 1,
+    		swingSpeed: 0.2,
+    		elasticBounds: 1,
+    		dragHandle: 1,
+    		dynamicHandle: 1,
+    		sbSize: 80,
+    		activateMiddle: 1,
+    		easing: 'easeOutExpo',
+    		scrollBar: $sly_wrap.find('.slyslider__scrollbar'),
+    		prev: $sly_wrap.find('.prev'),
+    		next: $sly_wrap.find('.next'),
+    	});
+    });
 
 }(jQuery));

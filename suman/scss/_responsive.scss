@@ -84,6 +84,31 @@ MEDIA QUERIES
         padding: 100px 0;
     } 
 
+    .whatwedo {
+        padding: 100px 0;
+
+        &__content {
+            max-width: 100%;
+            margin-bottom: 50px;
+
+            .entry-title {
+                margin-bottom: 20px;
+
+                .title {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    .portfolio {
+        padding: 100px 0;
+    }
+
+    .faqs {
+        padding: 100px 0;
+    }
+
 }/* 1199 */
 
 
@@ -155,6 +180,17 @@ MEDIA QUERIES
         padding: 80px 0; 
     } 
 
+    .whatwedo {
+        padding: 80px 0;
+    }
+
+    .portfolio {
+        padding: 80px 0;
+    }
+
+    .faqs {
+        padding: 80px 0;
+    }
 
 }/* 991 */
 
@@ -243,6 +279,43 @@ MEDIA QUERIES
             }
         }
     }
+
+    .whatwedo {
+        padding: 60px 0;
+
+        &__item {
+
+            .icon {
+                width: 90px;
+                height: 90px;
+                font-size: 40px;
+                line-height: 90px;
+            }
+        }
+    }
+
+    .portfolio {
+        padding: 60px 0;
+
+        .entry-title {
+            margin-bottom: 20px;
+        }
+
+        .slyslider {
+
+            &__item {
+                max-width: 500px;
+            }
+        }
+    }
+
+    .faqs {
+        padding: 60px 0;
+
+        .entry-title {
+            margin-bottom: 20px;
+        }
+    }
     
     /***********************************
     FOOTER STYLES
@@ -326,6 +399,10 @@ MEDIA QUERIES
         width: 100%;
     }
 
+    .separator {
+        margin-bottom: 5px;
+    }
+
     /***********************************
     HEADER STYLES
     ***********************************/
@@ -371,11 +448,60 @@ MEDIA QUERIES
             max-width: 300px;
             margin-left: auto;
             margin-right: auto;
-
-            .rounded-image {
-            }
         }
     } 
+
+    .whatwedo {
+        padding: 40px 0;
+
+        &__item {
+
+            .icon {
+                width: 80px;
+                height: 80px;
+                font-size: 35px;
+                line-height: 80px;
+
+                .number {
+                    right: -5px;
+                    width: 20px;
+                    height: 20px;
+                    font-size: 8px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+
+    .portfolio {
+        padding: 40px 0;
+
+        .slyslider {
+
+            &__item {
+                max-width: 440px;
+            }
+        }
+    }
+
+    .faqs {
+        padding: 40px 0;
+    }
+
+    #accordion {
+
+        .card {
+            margin-bottom: 30px;
+
+            .card-header {
+                padding: 0 40px 15px 0;
+            }
+
+            .card-body {
+                padding: 0 0 20px;
+            }
+        }
+    }
 
     /***********************************
     FOOTER STYLES
@@ -434,6 +560,32 @@ MEDIA QUERIES
                         }
                     }
                 }
+            }
+        }
+    }
+
+    /***********************************
+    HOME STYLES
+    ***********************************/
+    .whatwedo {
+
+        &__item {
+
+            .icon {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+                line-height: 70px;
+            }
+        }
+    }
+
+    .portfolio {
+
+        .slyslider {
+
+            &__item {
+                max-width: 380px;
             }
         }
     }

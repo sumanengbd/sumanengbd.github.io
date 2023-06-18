@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'suman';
-	src: url('fonts/suman.eot?22319708');
-	src: url('fonts/suman.eot?22319708#iefix') format('embedded-opentype'),
-	 	url('fonts/suman.woff2?22319708') format('woff2'),
-		url('fonts/suman.woff?22319708') format('woff'),
-	 	url('fonts/suman.ttf?22319708') format('truetype'),
-	 	url('fonts/suman.svg?22319708#suman') format('svg');
+	src: url('fonts/suman.eot?66603253');
+	src: url('fonts/suman.eot?66603253#iefix') format('embedded-opentype'),
+	 	url('fonts/suman.woff2?66603253') format('woff2'),
+		url('fonts/suman.woff?66603253') format('woff'),
+	 	url('fonts/suman.ttf?66603253') format('truetype'),
+	 	url('fonts/suman.svg?66603253#suman') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -44,11 +44,37 @@
 .icon-check:before { content: '\e807'; }
 .icon-arrow-up:before { content: '\e808'; }
 .icon-mail:before { content: '\e809'; }
+.icon-dashboard-web:before { content: '\e80a'; }
 .icon-cance:before { content: '\e815'; }
+.icon-ship-wheel:before { content: '\e81b'; }
+.icon-space-shuttle:before { content: '\e81f'; }
+.icon-architecture-alt:before { content: '\e985'; }
+.icon-labour:before { content: '\e9a8'; }
+.icon-headphone:before { content: '\ea33'; }
+.icon-iphone:before { content: '\ea3b'; }
+.icon-laptop:before { content: '\ea42'; }
+.icon-atom:before { content: '\eacd'; }
+.icon-award:before { content: '\eace'; }
+.icon-black-board:before { content: '\ead0'; }
+.icon-brainstorming:before { content: '\ead3'; }
+.icon-graduate-alt:before { content: '\eadb'; }
+.icon-file-alt:before { content: '\eb08'; }
+.icon-file-audio:before { content: '\eb09'; }
+.icon-file-avi-mp4:before { content: '\eb0a'; }
+.icon-file-code:before { content: '\eb0c'; }
+.icon-file-css:before { content: '\eb0d'; }
+.icon-file-pdf:before { content: '\eb1e'; }
+.icon-file-php:before { content: '\eb1f'; }
+.icon-file-python:before { content: '\eb25'; }
+.icon-file-sql:before { content: '\eb28'; }
+.icon-finger-print:before { content: '\ebb7'; }
+.icon-cloud-refresh:before { content: '\eee6'; }
+.icon-safety:before { content: '\efdc'; }
 .icon-angle-down:before { content: '\f004'; }
 .icon-angle-up:before { content: '\f005'; }
 .icon-angle-right:before { content: '\f006'; }
 .icon-angle-left:before { content: '\f007'; }
+.icon-web:before { content: '\f028'; }
 .icon-twitter:before { content: '\f099'; }
 .icon-facebook:before { content: '\f09a'; }
 .icon-github:before { content: '\f09b'; }
