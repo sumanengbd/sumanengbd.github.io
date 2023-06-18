@@ -235,7 +235,9 @@
         }
     };
 
-    setImageUrl();
+    if (document.getElementById('imageLoad')) {
+        setImageUrl();
+    }
 
     /*** Call Sly on frame */
     $('.slyslider__wrapper').each(function(i, l) {
@@ -269,5 +271,91 @@
     		next: $sly_wrap.find('.next'),
     	});
     });
+
+    /*** wow js */
+    function wowjs() {
+    	wow = new WOW({
+    		boxClass: 'wow',
+    		animateClass: 'animate__animated',
+    		offset: 0,
+    		mobile: true,
+    		live: true,
+    	});
+    	wow.init();
+    }
+
+    wowjs();
+
+    /*** mixitup load for search */
+	var notMatching = $('.notmatching');
+	var containerEl = $('.protfolioFilter');
+
+	if ( containerEl.length > 0 ) {
+
+		var conv = function(str) {
+			if (!str) {
+				str = 'none';
+			}
+
+			return str.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~]/g, '')
+				.replace(/ /g, "-")
+				.toLowerCase()
+				.trim();
+		};
+
+		// Creating dynamic elements classes from its categories:
+		var catArray = document.querySelectorAll('.portfolio__item');
+
+		catArray.forEach(function(elem) {
+			var text = elem.innerText || elem.innerContent;
+			var className = conv(text);
+
+			if (className[0] == [0 - 9]) {
+				//className = "m" + className;
+				console.log("GOT IT")
+			}
+
+			$(elem).parent().addClass(className);
+		});
+
+
+		var filterGroups = document.querySelectorAll('.filter-group');
+			filterGroups.forEach(function(group) {
+			group.setAttribute('data-filter-group', '');
+		});
+
+		var mixer = mixitup(containerEl, {
+			multifilter: {
+	          	enable: true // enable the multifilter extension for the mixer
+	        },
+			animation: {
+				enable: false,
+				duration: 350,
+				queueLimit: 5,
+			},
+			controls: {
+				toggleLogic: 'and',
+			},
+			selectors: {
+				target: '.mix'
+			},
+			callbacks: {
+				onMixStart: function(state, futureState) {
+	   	        	wowjs();
+	                notMatching.fadeOut();
+	   	        	jQuery.LoadingOverlay("show");
+	   	        },
+	   	        onMixEnd: function(state, futureState) {
+	   	        	wowjs();
+
+	                notMatching.fadeOut();
+	   	        	jQuery.LoadingOverlay("hide");
+	   	        },
+	   	        onMixFail: function(state) {
+	                notMatching.fadeIn();
+	            }
+			}
+		});
+	}
 
 }(jQuery));
