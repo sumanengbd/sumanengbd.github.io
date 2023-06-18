@@ -217,8 +217,6 @@
         const imgElement = imageLoad.getElementsByTagName("img")[0];
         const imageUrl = await getImageUrl();
 
-        console.log(imageUrl);
-
         if ( imageUrl !== 'undefined=w1200' ) {
 
 	        $(imageLoad).LoadingOverlay("show"); // Show loading overlay
@@ -246,6 +244,8 @@
     	    $slide = $sly_frame.children('.slyslider').eq(0),
     	    $sly_wrap  = $sly_frame.parent();
 
+    	    console.log($sly_wrap.find('.prev'));
+
     	$(this).sly({
     		smart: 1,
     		speed: 300,
@@ -263,6 +263,7 @@
     		sbSize: 80,
     		activateMiddle: 1,
     		easing: 'easeOutExpo',
+    		pagesBar: $sly_wrap.find('.slyslider__pages'),
     		scrollBar: $sly_wrap.find('.slyslider__scrollbar'),
     		prev: $sly_wrap.find('.prev'),
     		next: $sly_wrap.find('.next'),

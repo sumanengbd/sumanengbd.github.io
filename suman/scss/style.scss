@@ -903,13 +903,14 @@ HOME STYLES
 	&__item {
 
 		.content {
-			margin-bottom: 10px;
+			margin-bottom: 15px;
 
 			.title {
 				color: $white;
 			}
 
 			.metadata {
+				margin-bottom: 0;
 				margin-left: -10px;
 				margin-right: -10px;
 
@@ -935,11 +936,11 @@ HOME STYLES
 			}
 
 			.icon {
-				width: 40px;
-				height: 40px;
+				width: 50px;
+				height: 50px;
 				color: $base;
-				font-size: 16px;
-				line-height: 42px;
+				font-size: 18px;
+				line-height: 52px;
 				text-align: center;
 				background: #F9FBFC;
 				border-radius: 500px;
@@ -983,10 +984,6 @@ HOME STYLES
 
 	.slyslider {
 
-		&__wrapper {
-
-		}
-
 		&__item {
 			max-width: 605px;
 		}
@@ -1009,6 +1006,17 @@ HOME STYLES
 
 			.handle {
 				background: $white;
+			}
+		}
+
+		&__pages {
+
+			li {
+				background: $white;
+
+				&.active {
+					background: $secondary;
+				}
 			}
 		}
 	}
@@ -1438,10 +1446,15 @@ DEFAULT STYLES
 	&__controls {
 		margin-top: 30px;
 
+		&.top {
+			margin-top: 0;
+			margin-bottom: 30px;
+		}
+
 		.arrows {
-			margin-left: -15px;
-			margin-right: -15px;
-			padding-right: 16px;
+			margin-left: -10px;
+			margin-right: -10px;
+			padding-right: 20px;
 		}
 
 		.slyslider__control {
@@ -1473,7 +1486,8 @@ DEFAULT STYLES
 
 	&__scrollbar {
 		width: 100%;
-		height: 4px;
+		height: 8px;
+		overflow: hidden;
 		background: $primary;
 		border-radius: 500px;
 
@@ -1483,9 +1497,9 @@ DEFAULT STYLES
 			border-radius: 500px;
 		}
 	}
-
+	
 	&__button {
-		
+		margin-top: 30px;
 	}
 }
 

@@ -316,7 +316,6 @@ html {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
     overflow-y: scroll;
 }
 
@@ -1465,7 +1464,7 @@ HOME STYLES
 }
 
 .portfolio__item .content {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .portfolio__item .content .title {
@@ -1473,6 +1472,7 @@ HOME STYLES
 }
 
 .portfolio__item .content .metadata {
+    margin-bottom: 0;
     margin-left: -10px;
     margin-right: -10px;
 }
@@ -1495,11 +1495,11 @@ HOME STYLES
 }
 
 .portfolio__item .content .icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     color: #3413FF;
-    font-size: 16px;
-    line-height: 42px;
+    font-size: 18px;
+    line-height: 52px;
     text-align: center;
     background: #F9FBFC;
     border-radius: 500px;
@@ -1570,6 +1570,14 @@ HOME STYLES
 
 .portfolio .slyslider__scrollbar .handle {
     background: #FFFFFF;
+}
+
+.portfolio .slyslider__pages li {
+    background: #FFFFFF;
+}
+
+.portfolio .slyslider__pages li.active {
+    background: #1AD03F;
 }
 
 .faqs {
@@ -1967,10 +1975,15 @@ DEFAULT STYLES
     margin-top: 30px;
 }
 
+.slyslider__controls.top {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
 .slyslider__controls .arrows {
-    margin-left: -15px;
-    margin-right: -15px;
-    padding-right: 16px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-right: 20px;
 }
 
 .slyslider__controls .slyslider__control {
@@ -2002,7 +2015,8 @@ DEFAULT STYLES
 
 .slyslider__scrollbar {
     width: 100%;
-    height: 4px;
+    height: 8px;
+    overflow: hidden;
     background: #042742;
     border-radius: 500px;
 }
@@ -2011,6 +2025,10 @@ DEFAULT STYLES
     height: 100%;
     background: #3413FF;
     border-radius: 500px;
+}
+
+.slyslider__button {
+    margin-top: 30px;
 }
 
 @-webkit-keyframes rotate {
@@ -2313,6 +2331,15 @@ MEDIA QUERIES
     .footer .social-media {
         margin-top: 20px;
     }
+    /***********************************
+    DEFAULT STYLES
+    ***********************************/
+    .slyslider__controls .slyslider__control {
+        width: 60px;
+        height: 60px;
+        font-size: 16px;
+        line-height: 60px;
+    }
 }
 
 /* 767 */
@@ -2412,6 +2439,9 @@ MEDIA QUERIES
     .portfolio {
         padding: 40px 0;
     }
+    .portfolio__item .media {
+        border-radius: 16px;
+    }
     .portfolio .slyslider__item {
         max-width: 440px;
     }
@@ -2442,6 +2472,15 @@ MEDIA QUERIES
     .footer .social-media {
         margin-top: 20px;
     }
+    /***********************************
+    DEFAULT STYLES
+    ***********************************/
+    .slyslider__controls .slyslider__control {
+        width: 50px;
+        height: 50px;
+        font-size: 14px;
+        line-height: 50px;
+    }
 }
 
 /* 575 */
@@ -2458,17 +2497,20 @@ MEDIA QUERIES
     /***********************************
     HOME STYLES
     ***********************************/
-    .whatwedo__item .icon {
-        width: 70px;
-        height: 70px;
-        font-size: 28px;
-        line-height: 70px;
-    }
     .portfolio .slyslider__item {
-        max-width: 380px;
+        max-width: 340px;
     }
 }
 
 /* 480 */
+@media only screen and (max-width: 380px) {
+    /***********************************
+    HOME STYLES
+    ***********************************/
+    .portfolio .slyslider__item {
+        max-width: 300px;
+    }
+}
+
 /* 380 */
 /*# sourceMappingURL=style.css.map */
