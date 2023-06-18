@@ -304,18 +304,18 @@
 		};
 
 		// Creating dynamic elements classes from its categories:
-		var catArray = document.querySelectorAll('.portfolio__item');
+		var catArray = $('.portfolio__item');
 
-		catArray.forEach(function(elem) {
-			var text = elem.innerText || elem.innerContent;
-			var className = conv(text);
+		catArray.each(function (index, elem) {
+		    var text = $(elem).text();
+		    var className = conv(text);
 
-			if (className[0] == [0 - 9]) {
-				//className = "m" + className;
-				console.log("GOT IT")
-			}
+		    if (/^[0-9]/.test(className)) {
+		      //className = "m" + className;
+		      console.log("GOT IT");
+		    }
 
-			$(elem).parent().addClass(className);
+		    $(elem).parent().addClass(className);
 		});
 
 
