@@ -116,6 +116,10 @@ MEDIA QUERIES
         padding-bottom: 100px;
     }
 
+    .portfolio-details {
+        padding-bottom: 100px;
+    }
+
     /***********************************
     CONTACT STYLES
     ***********************************/
@@ -210,6 +214,10 @@ MEDIA QUERIES
     PORTFOLIO STYLES
     ***********************************/
     .portfolio {
+        padding-bottom: 80px;
+    }
+
+    .portfolio-details {
         padding-bottom: 80px;
     }
 
@@ -350,6 +358,10 @@ MEDIA QUERIES
     ***********************************/
     .portfolio {
         padding: 60px 0; 
+    }
+
+    .portfolio-details {
+        padding-bottom: 60px;
     }
 
     /***********************************
@@ -602,6 +614,17 @@ MEDIA QUERIES
         }
     }
 
+    .portfolio-details {
+        padding: 40px 0;
+
+        &__content {
+
+            .pblock {
+                margin-bottom: 40px;
+            } 
+        }
+    }
+
     /***********************************
     CONTACT STYLES
     ***********************************/
@@ -652,7 +675,10 @@ MEDIA QUERIES
 
     .page-header {
         padding-top: 100px;
-        padding-bottom: 40px;
+
+        &:not(&--portfolio) {
+            padding-bottom: 40px;
+        }
     }
     
 }/* 575 */
@@ -709,6 +735,11 @@ MEDIA QUERIES
     ***********************************/
     .page-header {
         padding-top: 80px;
+
+        &--portfolio {
+            padding-bottom: 100px;
+        }
+
     }
 
 }/* 480 */

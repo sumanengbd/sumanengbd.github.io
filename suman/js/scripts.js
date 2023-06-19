@@ -293,40 +293,41 @@
 	if ( containerEl.length > 0 ) {
 
 		var conv = function(str) {
-			if (!str) {
-				str = 'none';
-			}
+		    if (!str) {
+		        str = 'none';
+		    }
 
-			return str.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~]/g, '')
-				.replace(/ /g, "-")
-				.toLowerCase()
-				.trim();
+		    return str.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~]/g, '')
+		        .replace(/ /g, "-")
+		        .toLowerCase()
+		        .trim();
 		};
 
 		// Creating dynamic elements classes from its categories:
-		var catArray = $('.portfolio__item');
+		var portfolioItem = document.querySelectorAll('.portfolio__item');
 
-		catArray.each(function (index, elem) {
-		    var text = $(elem).text();
-		    var className = conv(text);
+		portfolioItem.forEach(function(elem, index) {
+			var text = elem.textContent;
+			var className = conv(text);
 
-		    if (/^[0-9]/.test(className)) {
-		      //className = "m" + className;
-		      console.log("GOT IT");
-		    }
+			if (className.match(/[0-9]/)) {
+				console.log("GOT IT");
+			}
 
-		    $(elem).parent().addClass(className);
-		});
+			// Replace spaces, numbers, new lines, and hyphens with spaces
+			className = className.replace(/[\s0-9\n-]/g, ' ').trim().replace(/\s+/g, ' ');
 
+			var words = className.split(' ');
 
-		var filterGroups = document.querySelectorAll('.filter-group');
-			filterGroups.forEach(function(group) {
-			group.setAttribute('data-filter-group', '');
+			// Add each word as a separate class
+			words.forEach(function(word) {
+				elem.parentNode.classList.add(word);
+			});
 		});
 
 		var mixer = mixitup(containerEl, {
 			multifilter: {
-	          	enable: true // enable the multifilter extension for the mixer
+	          	enable: true,
 	        },
 			animation: {
 				enable: false,
@@ -337,13 +338,15 @@
 				toggleLogic: 'and',
 			},
 			selectors: {
-				target: '.mix'
+				target: '.mix',
 			},
 			callbacks: {
 				onMixStart: function(state, futureState) {
 	   	        	wowjs();
 	                notMatching.fadeOut();
 	   	        	jQuery.LoadingOverlay("show");
+
+	   	        	console.log('onMixStart: '+ futureState.activeFilter.selector);
 	   	        },
 	   	        onMixEnd: function(state, futureState) {
 	   	        	wowjs();
@@ -356,6 +359,121 @@
 	            }
 			}
 		});
+
+		// Function to append list items
+		const appendListItems = () => {
+			const selectValue = document.getElementById('type');
+			const inputValue = document.getElementById('search');
+			const ul = document.getElementById('currentFilters');
+
+			ul.innerHTML = '';
+
+			if (inputValue.value) {
+				const li = document.createElement('li');
+
+				li.setAttribute('data-value', inputValue.value);
+				li.classList.add('current-filters__item');
+
+				li.textContent = 'Key: ' + inputValue.value;
+				ul.appendChild(li);
+			}
+
+			if (selectValue.value) {
+				const selectedOption = document.querySelector('#type option:checked');
+				const li = document.createElement('li');
+
+				li.setAttribute('data-value', selectedOption.value);
+				li.classList.add('current-filters__item');
+
+				li.textContent = 'Type: ' + selectedOption.textContent;
+				ul.appendChild(li);
+			}
+
+			updateListVisibility();
+		};
+
+		// Function to update list visibility
+		const updateListVisibility = () => {
+			const ul = document.getElementById('currentFilters');
+			const resetButton = document.getElementById('resetButton');
+
+			ul.style.display = ul.children.length > 0 ? 'block' : 'none';
+			resetButton.style.display = ul.children.length > 0 ? 'block' : 'none';
+		};
+
+		document.getElementById('type').addEventListener('change', appendListItems);
+		document.getElementById('search').addEventListener('input', appendListItems);
+
+		document.getElementById('resetButton').addEventListener('click', () => {
+			document.getElementById('currentFilters').innerHTML = '';
+			updateListVisibility();
+		});
+
+		document.getElementById('currentFilters').addEventListener('click', function(event) {
+			if (event.target && event.target.nodeName === 'LI') {
+				const state = mixer.getState();
+			    const activeFilter = state.activeFilter;
+				const listItemValue = event.target.getAttribute('data-value');
+
+				event.target.remove();
+
+				if (document.querySelector('#type option:checked').value === listItemValue) {
+					// Remove mixer filter value
+					mixer.setFilterGroupSelectors('type', []);
+
+					// Remove Select Value
+					document.getElementById('type').value = '';
+				}
+
+				if (document.getElementById('search').value === listItemValue) {
+					// Remove mixer filter value
+					mixer.setFilterGroupSelectors('key', []);
+
+					// Remove Input Value
+					document.getElementById('search').value = '';
+				}
+
+				// Refresh mixitup
+			    mixer.parseFilterGroups();
+
+				updateListVisibility();
+			}
+		});
 	}
+
+    $('.gallery-popup').magnificPopup({
+ 		delegate: 'a.popup',
+ 		type: 'image',
+ 		midClick: true,
+ 		preloader: false,
+ 		fixedBgPos: true,
+ 		removalDelay: 500,
+ 		fixedContentPos: true,
+ 		closeBtnInside: false,
+ 		gallery: {
+	        enabled: true,
+	        navigateByImgClick: true,
+	        preload: [0,1]
+	    },
+	    image: {
+	    	titleSrc: function(item) {
+	    		var title = item.el.attr('title') ? '<h5 class="title">' + item.el.attr('title') + '</h5>' : '';
+	    		var description = item.el.attr('description') ? item.el.attr('description') : '';
+
+	    	    return title + description;
+	    	}
+	    },
+ 		callbacks: {
+ 		    beforeOpen: function() {
+ 		        this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+ 		        this.st.mainClass = this.st.el.attr('data-effect');
+ 		    },
+ 		    buildControls: function() {
+      // re-appends controls inside the main container
+      this.contentContainer.append(this.arrowLeft.add(this.arrowRight));
+    }
+ 		},
+ 		closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close">Close<span class="icon-cance"></span></button>',
+    });
 
 }(jQuery));
