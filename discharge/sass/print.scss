@@ -1,0 +1,113 @@
+@media print {
+
+	@page {
+		margin: 0;
+		size: A4 landscape;
+	}
+
+	body {
+		width: 100%;
+		height: 100%;
+	}
+
+	input[type="text"]:not(.select2-input),
+	input[type="number"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="search"],
+	input[type="password"],
+	input[type="file"],
+	input[type="time"],
+	select, textarea {
+		height: auto !important;
+	}
+
+	.page_banner .add_list .addnew {
+		display: none;
+	}
+
+	.prescription__wrapper .card .form .state-filter:before {
+		display: none;
+	}
+
+	.page_banner .page_banner__wrapper ol.list li input[type="text"]:not(.select2-input),
+	input[type="number"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="search"],
+	input[type="password"],
+	input[type="file"],
+	select, textarea {
+		padding: 0 !important;
+		height: auto !important;
+	}
+
+	.prescription__wrapper .card .procedure textarea {
+		height: 100% !important;
+	    min-height: 100% !important;
+	    overflow: visible !important;
+	}
+
+	.select2-container--default .select2-selection--single {
+		border: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__rendered {
+		padding: 0 !important;
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__arrow,
+	.select2-container--default .select2-selection--single .select2-selection__clear {
+		display: none;
+	}
+
+	.prescription .rx_card__wrap .rxcard_list {
+		list-style-type: decimal;
+		padding-inline-start: 12px;
+	}
+
+	.prescription .rx_card__wrap .rxcard_list--item .remove-item {
+		display: none;
+	}
+
+	.page_banner__wrapper .left-side ol.list li .remove {
+		display: none;
+	}
+
+	.prescription .rx_card .state-filter:before {
+		display: none;
+	}
+
+	.prescription .rx_card__wrap .rxcard_list--item .select_option-wrap li {
+		height: auto;
+	}
+
+  	.prescription .rx_card__wrap .addnew_rx {
+		display: none;
+  	}
+
+	.prescription .rx_card__wrap .rxcard_list--item .select_option {
+		margin-bottom: 0;
+	}
+
+	.prescription .rx_card__wrap .rxcard_list--item {
+	    margin-bottom: 0;
+	}
+
+	.prescription .rx_card__wrap .rxcard_list--item:before {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.prescription__wrapper .card .procedure textarea {
+	    margin: 0;
+	    height: auto !important;
+	}
+
+	.prescription__wrapper .card .form .state-filter select {
+        padding: 0 !important;
+    	height: auto !important;
+	}
+}
