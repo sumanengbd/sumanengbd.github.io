@@ -106,7 +106,6 @@ textarea {
 }
 
 .container {
-	width: 100%;
 	width: 1122px;
 	max-width: 1122px;
 	position: relative;
@@ -119,6 +118,7 @@ textarea {
 .buttongroup {
 	right: 20px;
 	bottom: 20px;
+	z-index: 999;
 	position: fixed;
 
 	.button {
@@ -197,10 +197,6 @@ DISCHARGE STYLES
 
 			.entry-title {
 				text-align: center;
-			}
-
-			#diseaseText {
-				display: none;
 			}
 		}
 
