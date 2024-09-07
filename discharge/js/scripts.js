@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const pnameInput = document.getElementById('pname');
+
+    pnameInput.addEventListener('input', () => {
+        const pnameValue = pnameInput.value.trim();
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true,};
+        const currentDateTime = now.toLocaleString('en-US', options);
+
+        document.title = pnameValue ? `${pnameValue} এর ছাড়পত্র - ${currentDateTime}` : 'রোগীর ছাড়পত্র';
+    });
+});
+
 $(document).ready(function () {
     document.getElementById('print').addEventListener('click', function() {
         window.print();
