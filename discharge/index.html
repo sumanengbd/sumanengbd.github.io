@@ -10,16 +10,18 @@
     <!-- Bootstrap -->
     <link rel="icon" type="image/png" href="../images/favicon.png" sizes="32x32">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
     <link href="css/plugins.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
+	<div class="buttongroup">
+		<button id="print" class="button">প্রিন্ট করুন</button>	
+	</div>
 
 	<div class="paper_wrapper">
-	
 		<div class="page_header pb-0">
 			<div class="container">
 				<div class="page_banner__wrapper">
@@ -49,12 +51,16 @@
 						<div class="add_list">
 							<ol id="list1" class="list condition">
 								<li class="ui-state-default">
-									<input type="text" value="k1-mm ২৮ তম দিনে বাচ্চার মুখে খাওয়াবেন">
+									<input type="text" value="Ing: k1-mm ২৮ তম দিনে বাচ্চার মুখে খাওয়াবেন।">
+									<button class="remove">✖</button>
+								</li>
+								<li class="ui-state-default">
+									<input type="text" value="বাচ্চার যেকোনো অসুস্থতার জন্য শিশু বিশেষজ্ঞ ডাক্তার দেখাবেন। ">
 									<button class="remove">✖</button>
 								</li>
 							</ol>
 
-							<button class="addnew" data-target="#list1">Add New list</button>
+							<button class="addnew" data-target="#list1">নতুন তালিকা যোগ করুন</button>
 						</div>
 
 						<div class="entry-title">
@@ -64,12 +70,36 @@
 						<div class="add_list">
 							<ol id="list2" class="list condition">
 							    <li class="ui-state-default">
-							    	<input type="text" value="2 মাস পূর্ণ বিশ্রাম নেবেন">
+							    	<input type="text" value="২ মাস পূর্ণ বিশ্রাম নেবেন।">
+							    	<button class="remove">✖</button>
+							    </li>
+							    <li class="ui-state-default">
+							    	<input type="text" value="৬ মাস ভারী কাজ নিষেধ।">
+							    	<button class="remove">✖</button>
+							    </li>
+							    <li class="ui-state-default">
+							    	<input type="text" value="৬ মাস বেল্ট ব্যবহার করবেন।">
+							    	<button class="remove">✖</button>
+							    </li>
+							    <li class="ui-state-default">
+							    	<input type="text" value="পর্যাপ্ত পরিমান পানি, ফলমূল ও শাক-সবজি খাবেন।">
+							    	<button class="remove">✖</button>
+							    </li>
+							    <li class="ui-state-default">
+							    	<input type="text" value="অপারেশন এর দিন থেকে দশম দিনে সেলাই কাটাবেন।">
+							    	<button class="remove">✖</button>
+							    </li>
+							    <li class="ui-state-default">
+							    	<input type="text" value="৬ মাস পর্যন্ত বাচ্চাকে বুকের দুধ খাওয়াবেন।">
+							    	<button class="remove">✖</button>
+							    </li>
+							    <li class="ui-state-default">
+							    	<input type="text" value="পরিষ্কার পরিছন্ন থাকবেন এবং নিয়মিত গোসল করবেন।">
 							    	<button class="remove">✖</button>
 							    </li>
 							</ol>
 
-							<button class="addnew" data-target="#list2">Add New list</button>
+							<button class="addnew" data-target="#list2">নতুন তালিকা যোগ করুন</button>
 						</div>
 					</div>
 
@@ -80,60 +110,60 @@
 
 						<div class="rith-side__form">
 							<div class="form-group d-flex align-items-end">
-					        	<label class="label text-nowrap">প্রত্যয় করা হইতাছে যে, জনাব/জনাবা</label>
-					            <input type="text" class="form-control">
+					        	<label for="pname" class="label text-nowrap">প্রত্যয় করা যাইতেছে যে, জনাব/জনাবা</label>
+					            <input type="text" class="form-control" id="pname">
 					        </div>
 
 							<div class="form-group d-flex align-items-end">
-					        	<label class="label text-nowrap">পিতা/স্বামী</label>
-					            <input type="text" class="form-control">
+					        	<label for="guardian" class="label text-nowrap">পিতা/স্বামী</label>
+					            <input type="text" class="form-control" id="guardian">
 					        </div>
 
 					        <div class="d-flex">
 								<div class="form-group d-flex align-items-end">
-						        	<label class="label text-nowrap">গ্রাম/মহল্লা:</label>
-						            <input type="text" class="form-control">
+						        	<label for="village" class="label text-nowrap">গ্রাম/মহল্লা:</label>
+						            <input type="text" class="form-control" id="village">
 						        </div>
 
 								<div class="form-group d-flex align-items-end">
-						        	<label class="label text-nowrap">ডাকঘর:</label>
-						            <input type="text" class="form-control">
+						        	<label for="postoffice" class="label text-nowrap">ডাকঘর:</label>
+						            <input type="text" class="form-control" id="postoffice">
 						        </div>
 					        </div>
 
 					        <div class="d-flex">
 								<div class="form-group d-flex align-items-end">
-						        	<label class="label text-nowrap">উপজেলা:</label>
-						            <input type="text" class="form-control">
+						        	<label for="upazila" class="label text-nowrap">উপজেলা:</label>
+						            <input type="text" class="form-control" id="upazila">
 						        </div>
 						        
 								<div class="form-group d-flex align-items-end">
-						        	<label class="label text-nowrap">জেলা:</label>
-						            <input type="text" class="form-control">
+						        	<label for="district" class="label text-nowrap">জেলা:</label>
+						            <input type="text" class="form-control" id="district">
 						        </div>
 					        </div>
 
 					        <div class="d-flex">
 								<div class="form-group d-flex align-items-end">
-						        	<label class="label text-nowrap">অত্র হাসপাতালে</label>
-						            <input type="text" class="form-control">
+						        	<label for="section" class="label text-nowrap">অত্র হাসপাতালে</label>
+						            <input type="text" class="form-control" id="section">
 						        </div>
 						        
 								<div class="form-group d-flex align-items-end">
-						        	<label class="label text-nowrap">বিভাগে</label>
-						            <input type="text" class="form-control">
+						        	<label for="cabin" class="label text-nowrap">বিভাগে</label>
+						            <input type="text" class="form-control" id="cabin">
+						            <label class="label text-nowrap">ওয়ার্ডে/কেবিনে</label>
 						        </div>
 					        </div>
 
 					        <div class="d-flex">
 								<div class="form-group d-flex align-items-end">
-						        	<label class="label text-nowrap">ওয়ার্ডে/কেবিনে</label>
-						            <input type="text" class="form-control">
+						            <input type="text" class="form-control datepicker">
+						            <label for="current-date-1" class="label text-nowrap">তারিখ হইতে</label>
 						        </div>
 						        
 								<div class="form-group d-flex align-items-end">
-								    <label for="current-date-1" class="label text-nowrap">তারিখ হইতে</label>
-								    <input type="text" class="datepicker form-control">
+								    <input type="text" class="form-control datepicker">
 								    <label class="label text-nowrap">তারিখ</label>
 								</div>
 					        </div>
@@ -142,8 +172,8 @@
 								<span class="mb-1 d-block">পর্যন্ত চিকিৎসাধীন ছিলেন |</span>
 								
 								<div class="form-group d-flex align-items-end">
-						        	<label class="label text-nowrap">তিনি</label>
-						            <input type="text" class="form-control">
+						        	<label for="disease" class="label text-nowrap">তিনি</label>
+						            <input type="text" class="form-control" id="disease">
 						            <label class="label text-nowrap">রোগে ভুগিতেছেন |</label>
 								</div>
 					        </div>
@@ -274,9 +304,9 @@
 									<span class="d-inline text-nowrap">Baby Note</span>
 
 									<div class="wrap d-flex align-items-end">
-		                                <label class="label text-nowrap">sex:</label>
+		                                <label for="sex" class="label text-nowrap">sex:</label>
 		                                <div class="state-filter">
-		                                    <select name="">
+		                                    <select name="sex" id="sex">
 		                                        <option value="">Female</option>
 		                                        <option value="">Male</option>
 		                                    </select>
@@ -284,13 +314,13 @@
 									</div>
 
 									<div class="form-group d-flex align-items-end">
-							        	<label class="label text-nowrap">Weight:</label>
-							            <input type="text" class="form-control">
+							        	<label for="weight" class="label text-nowrap">Weight:</label>
+							            <input type="text" class="form-control" id="weight">
 							        </div>
 
 									<div class="form-group d-flex align-items-end">
-							        	<label class="label text-nowrap">A/S:</label>
-							            <input type="text" class="form-control">
+							        	<label for="as" class="label text-nowrap">A/S:</label>
+							            <input type="text" class="form-control" id="as">
 							        </div>
 	                            </div>
 							</div>
@@ -314,19 +344,27 @@
 											<li>
 												<div class="state-filter">
 				                                    <select name="">
-				                                        <option value="">1 + 1 + 1</option>
-				                                        <option value="">1 + 1 + 0</option>
-				                                        <option value="">1 + 0 + 1</option>
-				                                        <option value="">0 + 1 + 1</option>
-				                                        <option value="">1 + 0 + 0</option>
-				                                        <option value="">0 + 1 + 0</option>
-				                                        <option value="">0 + 0 + 1</option>
+				                                        <option value="">১ + ১ + ১</option>
+				                                        <option value="">১ + ১ + ০</option>
+				                                        <option value="">১ + ০ + ১</option>
+				                                        <option value="">০ + ১ + ১</option>
+				                                        <option value="">১ + ০ + ০</option>
+				                                        <option value="">০ + ১ + ০</option>
+				                                        <option value="">০ + ০ + ১</option>
 				                                    </select>
 												</div>
 			                                </li>
 
 											<li>
-			                                    <span contenteditable="true">ভরা পেটে খাবেন</span>
+												<div class="state-filter">
+													<select name="">
+													    <option value="">ভরা পেটে খাবেন</option>
+													    <option value="">খালি পেতে খাবেন</option>
+													    <option value="">খাবার আগে খাবেন</option>
+													    <option value="">খাওয়ার পরে খাবেন</option>
+													    <option value="">চুষে খাবেন</option>
+													</select>
+												</div>
 			                                </li>
 
 											<li>
@@ -336,7 +374,7 @@
 									</li>
 								</ol>
 
-								<button class="addnew_rx" data-target="#rxcard_list">Add New list</button>
+								<button class="addnew_rx" data-target="#rxcard_list">নতুন ওষুধ যোগ করুন</button>
 							</div>
 						</div>	
 					</div>
@@ -349,7 +387,6 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/plugins.js"></script>
-	<script src="js/scripts.js"></script>
-
+	<script src="js/scripts.min.js"></script>
 </body>
 </html>

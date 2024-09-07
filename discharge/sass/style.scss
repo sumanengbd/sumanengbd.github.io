@@ -23,10 +23,10 @@ h4, h5, h6, option, legend, label,
 table, th, td, tr, article, aside, 
 caption, figure, footer, header, hgroup, 
 mark, nav, section, time, audio, video {
-    margin: 0; 
-    padding: 0; 
-    border: 0; 
-    outline: 0;
+	margin: 0; 
+	padding: 0; 
+	border: 0; 
+	outline: 0;
 }
 
 table {
@@ -53,7 +53,7 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font: 400 16px/1.2 "Hind Siliguri", sans-serif;
+	font: 400 16px/1.2 "Noto Sans Bengali", sans-serif;
 }
 
 a, button {
@@ -73,20 +73,17 @@ section {
 }
 
 input[type="text"]:not(.select2-input),
-input[type="number"],
-input[type="email"],
-input[type="tel"],
-input[type="search"],
-input[type="password"],
-input[type="file"],
-input[type="date"],
-input[type="time"],
-select, textarea {
+input[type="number"], input[type="email"],
+input[type="tel"], input[type="search"],
+input[type="password"], input[type="file"],
+input[type="date"], input[type="time"],
+select:not(.ui-datepicker-month):not(.ui-datepicker-year), 
+textarea {
 	@include appearance;
 	border: 0 !important;
 	padding: 0 !important;
 	width: 100% !important;
-    height: 25px !important;	
+	height: 25px !important;	
 	color: #282525 !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
@@ -109,21 +106,43 @@ select, textarea {
 }
 
 .container {
-  width: 100%;
-  max-width: 1122px;
-  position: relative;
-  padding-left: 30px;
-  padding-right: 30px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+	width: 100%;
+	width: 1122px;
+	max-width: 1122px;
+	position: relative;
+	padding-left: 30px;
+	padding-right: 30px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.buttongroup {
+	right: 20px;
+	bottom: 20px;
+	position: fixed;
+
+	.button {
+		border: 0;
+		color: #FFF;
+		width: 70px;
+		height: 70px;
+		padding: 10px;
+		background: #170662;
+		border-radius: 500px;
+		transition: all 03s ease;
+
+		&:hover {
+			color: #FFF;
+			background: #1A66FF;
+		}
+	}
 }
 
 /***********************************
 DISCHARGE STYLES
 ***********************************/
-
 .paper_wrapper {
-	width: 100%;
+	width: 1122px;
 	height: auto;
 	overflow: hidden;
 	margin-left: auto;
@@ -174,6 +193,17 @@ DISCHARGE STYLES
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 
+		.rith-side {
+
+			.entry-title {
+				text-align: center;
+			}
+
+			#diseaseText {
+				display: none;
+			}
+		}
+
 		.left-side, .rith-side {
 
 			.entry-title {
@@ -190,20 +220,20 @@ DISCHARGE STYLES
 			ol.list {
 				margin: 0;
 				padding: 0;
-			    padding-inline-start: 20px;
+				padding-inline-start: 20px;
 
-			    li {
-			    	margin: 0;
-			    	border: 0;
-			    	padding: 0;
-			    	color: $black;
-			    	font-size: 16px;
-			    	line-height: 1;
-			    	position: relative;
-		    	  	list-style: bengali;
-			    	background: transparent;
+				li {
+					margin: 0;
+					border: 0;
+					padding: 0;
+					color: $black;
+					font-size: 16px;
+					line-height: 1;
+					position: relative;
+					list-style: bengali;
+					background: transparent;
 
-			    	input[type="text"]:not(.select2-input),
+					input[type="text"]:not(.select2-input),
 					input[type="number"],
 					input[type="email"],
 					input[type="tel"],
@@ -216,11 +246,11 @@ DISCHARGE STYLES
 						height: 30px !important;
 					}
 
-			    	&:not(:last-child) {
-				    	margin-bottom: 5px;
-				    }
+					&:not(:last-child) {
+						margin-bottom: 5px;
+					}
 
-				    .remove {
+					.remove {
 						top: 50%;
 						border: 0;
 						outline: 0;
@@ -232,7 +262,7 @@ DISCHARGE STYLES
 						background: transparent;
 						@include transform(translateY(-50%));
 					}
-			    }
+				}
 			}
 
 			&__form {
@@ -294,25 +324,25 @@ DISCHARGE STYLES
 			margin-bottom: 0;
 		}
 
-	    .addnew {
-	    	border: 0;
-	        padding: 0; 
-	        outline: 0;
-	        clear: both;
-	        color: $black;
-	        display: block;
-	        font-size: 14px;
-	        cursor: pointer;
-	        margin-top: 15px;
-	        width: fit-content;
-	        background: transparent;
-	        @include transition(all 0.3s ease);
+		.addnew {
+			border: 0;
+			padding: 0; 
+			outline: 0;
+			clear: both;
+			color: $black;
+			display: block;
+			font-size: 14px;
+			cursor: pointer;
+			margin-top: 15px;
+			width: fit-content;
+			background: transparent;
+			@include transition(all 0.3s ease);
 
-	        &:hover, &:focus {
-	        	outline: 0;
-	        	color: $red;
-	        }
-	    }
+			&:hover, &:focus {
+				outline: 0;
+				color: $red;
+			}
+		}
 	}
 }
 
@@ -462,13 +492,13 @@ DISCHARGE STYLES
 	.rx_card {
 
 		.entry-title {
-		    margin-bottom: 20px;
+			margin-bottom: 20px;
 
-		    .title {
-		    	color: $black;
-		    	line-height: 1;
-		    	font-size: 18px;
-		    }
+			.title {
+				color: $black;
+				line-height: 1;
+				font-size: 18px;
+			}
 		}
 
 		.state-filter {
@@ -573,22 +603,22 @@ DISCHARGE STYLES
 
 			.addnew_rx {
 				border: 0;
-		        padding: 0; 
-		        outline: 0;
-		        clear: both;
-		        color: $black;
-		        display: block;
-		        font-size: 14px;
-		        cursor: pointer;
-		        margin-top: 15px;
-		        width: fit-content;
-		        background: transparent;
-		        @include transition(all 0.3s ease);
+				padding: 0; 
+				outline: 0;
+				clear: both;
+				color: $black;
+				display: block;
+				font-size: 14px;
+				cursor: pointer;
+				margin-top: 15px;
+				width: fit-content;
+				background: transparent;
+				@include transition(all 0.3s ease);
 
-		        &:hover, &:focus {
-		        	outline: 0;
-		        	color: $red;
-		        }
+				&:hover, &:focus {
+					outline: 0;
+					color: $red;
+				}
 			}
 		}
 	}
@@ -597,27 +627,27 @@ DISCHARGE STYLES
 .select2-container--default {
 
 	.select2-selection--single {
-	    height: 30px;
-	    border-radius: 6px;
-	    border: 1px solid #aaa;
-	    background-color: transparent;
+		height: 30px;
+		border-radius: 6px;
+		border: 1px solid #aaa;
+		background-color: transparent;
 
-	    .select2-selection {
+		.select2-selection {
 
-	    	&__rendered {
-	    		z-index: 1;
-			    color: $black;
-			    line-height: 30px;
+			&__rendered {
+				z-index: 1;
+				color: $black;
+				line-height: 30px;
 			}
-	    }
+		}
 
-	    .select2-selection {
+		.select2-selection {
 
-	    	&__clear {
-			    height: 30px;
-	    		color: $black;
-	    		font-size: 16px;
-	    		margin-right: 30px;
+			&__clear {
+				height: 30px;
+				color: $black;
+				font-size: 16px;
+				margin-right: 30px;
 			}
 
 			&__arrow {
@@ -631,7 +661,7 @@ DISCHARGE STYLES
 					border-right: 4px solid transparent;
 				}
 			}
-	    }
+		}
 	}
 
 	&.select2-container--open {
@@ -643,8 +673,8 @@ DISCHARGE STYLES
 				&__arrow {
 
 					b {
-					    border-width: 0 4px 4px 4px;
-					    border-color: transparent transparent $black transparent;
+						border-width: 0 4px 4px 4px;
+						border-color: transparent transparent $black transparent;
 					}
 				}
 			}
@@ -655,9 +685,9 @@ DISCHARGE STYLES
 		position: relative;
 
 		.select2-search__field {
-		    border: 0 !important;
+			border: 0 !important;
 			border-radius: 0 !important;
-		    padding-left: 10px !important;
+			padding-left: 10px !important;
 		}
 	}
 }

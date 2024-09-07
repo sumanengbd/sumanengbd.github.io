@@ -22,6 +22,10 @@
 		height: auto !important;
 	}
 
+	.buttongroup {
+		display: none;
+	}
+
 	.page_banner .add_list .addnew {
 		display: none;
 	}
@@ -61,6 +65,10 @@
 	.select2-container--default .select2-selection--single .select2-selection__arrow,
 	.select2-container--default .select2-selection--single .select2-selection__clear {
 		display: none;
+	}
+
+	.page_banner__wrapper .rith-side #disease {
+		
 	}
 
 	.prescription .rx_card__wrap .rxcard_list {

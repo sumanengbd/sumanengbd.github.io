@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    document.getElementById('print').addEventListener('click', function() {
+        window.print();
+    });
+
     // Function to add a new list item with an incremented counter
     $(function() {
         $(".list").sortable({
@@ -10,7 +14,7 @@ $(document).ready(function () {
             var targetListId = $(this).data('target');
             var $list = $(targetListId);
             var $counter = $list.find('li').length + 1;
-            var listItem = `<li class="ui-state-default"><input type="text" placeholder="Please Add New List ${$counter}"><button class="remove">✖</button></li>`;
+            var listItem = `<li class="ui-state-default"><input type="text" placeholder="নতুন তালিকা ${$counter}"><button class="remove">✖</button></li>`;
             $list.append(listItem);
         });
 
@@ -33,34 +37,65 @@ $(document).ready(function () {
     setCurrentTime();
 
     // Datepicker
-    $(function() {
-        $(".datepicker").datepicker({
-            dateFormat: "d MM, yy"
+    $.datepicker.regional['bn'] = {
+        closeText: 'বন্ধ',
+        prevText: 'আগে',
+        nextText: 'পরে',
+        currentText: 'আজ',
+        monthNames: ['জানুয়ারী', 'ফেব্রুয়ারী', 'মার্চ', 'এপ্রিল', 'মে', 'জুন',
+            'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
+        monthNamesShort: ['জানু', 'ফেব্রু', 'মার্চ', 'এপ্রি', 'মে', 'জুন',
+            'জুল', 'আগ', 'সেপ', 'অক', 'নভে', 'ডিসে'],
+        dayNames: ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'],
+        dayNamesShort: ['রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহ', 'শুক্র', 'শনি'],
+        dayNamesMin: ['রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহ', 'শুক্র', 'শনি'],
+        weekHeader: 'হপ্তা',
+        dateFormat: 'dd MM, yy',
+        firstDay: 0,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    
+    $.datepicker.setDefaults($.datepicker.regional['bn']);
+    
+    function convertToBengaliNumber(num) {
+        const englishToBengaliMap = {
+            '0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪',
+            '5': '৫', '6': '৬', '7': '৭', '8': '৮', '9': '৯'
+        };
+        return num.replace(/\d/g, function (digit) {
+            return englishToBengaliMap[digit];
         });
+    }
 
-        var currentDate = $.datepicker.formatDate('d MM, yy', new Date());
-        $(".datepicker").val(currentDate);
+    $(".datepicker").datepicker({
+        isRTL: false,
+        changeYear: true,
+        changeMonth: true,
+        dateFormat: "dd MM, yy",
+        onSelect: function(dateText) {
+            $(this).val(convertToBengaliNumber(dateText));
+        }
     });
 
+    var currentDate = $.datepicker.formatDate('dd MM, yy', new Date());
+    $(".datepicker").val(convertToBengaliNumber(currentDate));
+
     $(document).ready(function() {
-        // Parse the CSV file and store the options
         let medicineOptions = [];
 
         Papa.parse("images/medicine.csv", {
             download: true,
             header: true,
             complete: function(results) {
-                console.log("CSV Loaded: ", results.data); // For debugging
-
-                // Store the options in an array
                 results.data.forEach(function(medicine) {
-                    if (medicine.Name && medicine.Strength) {  // Check for valid data
+                    if (medicine.Name && medicine.Strength) { 
                         const option = new Option(`${medicine.Name} - ${medicine.Strength}`, `${medicine.Name} - ${medicine.Strength}`, false, false);
                         medicineOptions.push(option);
                     }
                 });
 
-                // Initialize existing Select2 elements
                 $('.medicine-select').each(function() {
                     const $select = $(this);
                     medicineOptions.forEach(option => $select.append(option.cloneNode(true)));
@@ -83,17 +118,27 @@ $(document).ready(function () {
                         <li>
                             <div class="state-filter">
                                 <select name="">
-                                    <option value="">1 + 1 + 1</option>
-                                    <option value="">1 + 1 + 0</option>
-                                    <option value="">1 + 0 + 1</option>
-                                    <option value="">0 + 1 + 1</option>
-                                    <option value="">1 + 0 + 0</option>
-                                    <option value="">0 + 1 + 0</option>
-                                    <option value="">0 + 0 + 1</option>
+                                    <option value="">১ + ১ + ১</option>
+                                    <option value="">১ + ১ + ০</option>
+                                    <option value="">১ + ০ + ১</option>
+                                    <option value="">০ + ১ + ১</option>
+                                    <option value="">১ + ০ + ০</option>
+                                    <option value="">০ + ১ + ০</option>
+                                    <option value="">০ + ০ + ১</option>
                                 </select>
                             </div>
                         </li>
-                        <li><span contenteditable="true">ভরা পেটে খাবেন</span></li>
+                        <li>
+                            <div class="state-filter">
+                                <select name="">
+                                    <option value="">ভরা পেটে খাবেন</option>
+                                    <option value="">খালি পেতে খাবেন</option>
+                                    <option value="">খাবার আগে খাবেন</option>
+                                    <option value="">খাওয়ার পরে খাবেন</option>
+                                    <option value="">চুষে খাবেন</option>
+                                </select>
+                            </div>
+                        </li>
                         <li><span contenteditable="true">৭ দিন</span></li>
                     </ul>
                     <button type="button" class="remove-item">✖</button>
