@@ -57,6 +57,14 @@
 	    overflow: visible !important;
 	}
 
+	.prescription .rx_card select {
+		height: auto !important;
+	}
+
+	.prescription .rx_card__wrap .rxcard_list--item .d-flex {
+		gap: 0;
+	}
+
 	.select2-container--default .select2-selection--single {
 		border: 0 !important;
 		margin: 0 !important;
@@ -74,7 +82,11 @@
 
 	.prescription .rx_card__wrap .rxcard_list {
 		list-style-type: decimal;
-		padding-inline-start: 12px;
+		padding-inline-start: 16px;
+	}
+
+	.prescription .rx_card__wrap .rxcard_list--item .select2-container {
+		width: inherit !important;  
 	}
 
 	.prescription .rx_card__wrap .rxcard_list--item .remove-item {

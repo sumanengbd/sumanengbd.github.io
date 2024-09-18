@@ -427,6 +427,9 @@ DISCHARGE STYLES
 					}
 
 					select {
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
 						padding: 5px !important;
 					}
 				}
@@ -558,6 +561,16 @@ DISCHARGE STYLES
 					z-index: 1;
 					position: relative;
 					margin-bottom: 5px;
+
+					.d-flex {
+						gap: 5px;
+					}
+
+					.brand-select {
+						width: inherit !important;
+						font-size: 16px !important;
+				        padding: 6px 8px !important;
+					}
 
 					.select_option {
 						margin-bottom: 5px;

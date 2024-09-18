@@ -109,6 +109,10 @@ $(document).ready(function () {
                     }
                 });
 
+                $('.select2').select2({
+                    allowClear: false
+                });
+
                 $('.medicine-select').each(function() {
                     const $select = $(this);
                     medicineOptions.forEach(option => $select.append(option.cloneNode(true)));
@@ -118,13 +122,21 @@ $(document).ready(function () {
                     });
                 });
             }
-        });
+        });                             
 
         function addNewListItem(targetListId) {
             var $list = $(targetListId);
             var newItem = `
                 <li class="rxcard_list--item">
-                    <div class="select_option">
+                    <div class="select_option d-flex">
+                        <select name="type" class="select2 brand-select">
+                            <option value="">Tab.</option>
+                            <option value="">Cap.</option>
+                            <option value="">Syrp.</option>
+                            <option value="">Inj.</option>
+                            <option value="">Inf.</option>
+                        </select>
+
                         <select class="select2 medicine-select" name="medicine"></select>
                     </div>
                     <ul class="select_option-wrap list-unstyled">
@@ -159,12 +171,16 @@ $(document).ready(function () {
             `;
 
             $list.append(newItem);
-            const $newSelect = $list.find('select.select2').last();
+            const $newSelect = $list.find('select.medicine-select').last();
 
             // Add the stored options to the new select element
             medicineOptions.forEach(option => $newSelect.append(option.cloneNode(true)));
 
             // Initialize the new Select2 element
+            $('.select2').select2({
+                allowClear: false
+            });
+
             $newSelect.select2({
                 width: '100%',
                 placeholder: "Select an option",
