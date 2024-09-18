@@ -103,14 +103,13 @@ $(document).ready(function () {
             header: true,
             complete: function(results) {
                 results.data.forEach(function(medicine) {
-                    if (medicine.Name && medicine.Strength) { 
-                        const option = new Option(`${medicine.Name} - ${medicine.Strength}`, `${medicine.Name} - ${medicine.Strength}`, false, false);
+                    if (medicine.Name && medicine.DrugTypeShort) { 
+                        const optionValue = medicine.Strength ? `${medicine.DrugTypeShort}. ${medicine.Name} - ${medicine.Strength}` : `${medicine.DrugTypeShort}. ${medicine.Name}`;
+
+                        const option = new Option(optionValue, optionValue, false, false);
+
                         medicineOptions.push(option);
                     }
-                });
-
-                $('.select2').select2({
-                    allowClear: false
                 });
 
                 $('.medicine-select').each(function() {
@@ -128,15 +127,7 @@ $(document).ready(function () {
             var $list = $(targetListId);
             var newItem = `
                 <li class="rxcard_list--item">
-                    <div class="select_option d-flex">
-                        <select name="type" class="select2 brand-select">
-                            <option value="">Tab.</option>
-                            <option value="">Cap.</option>
-                            <option value="">Syrp.</option>
-                            <option value="">Inj.</option>
-                            <option value="">Inf.</option>
-                        </select>
-
+                    <div class="select_option">
                         <select class="select2 medicine-select" name="medicine"></select>
                     </div>
                     <ul class="select_option-wrap list-unstyled">
@@ -175,11 +166,6 @@ $(document).ready(function () {
 
             // Add the stored options to the new select element
             medicineOptions.forEach(option => $newSelect.append(option.cloneNode(true)));
-
-            // Initialize the new Select2 element
-            $('.select2').select2({
-                allowClear: false
-            });
 
             $newSelect.select2({
                 width: '100%',
