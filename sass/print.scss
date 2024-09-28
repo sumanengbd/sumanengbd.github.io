@@ -51,16 +51,47 @@
 		height: auto !important;
 	}
 
+	.prescription__wrapper .card .form #details-output-text {
+		display: block;
+	}
+
+	.page_banner__wrapper .rith-side .wrap #disease {
+		display: none !important;
+	}
+
 	.page_banner__wrapper .wrap .form-group {
 		display: block !important;
 	}
 
-	.page_banner__wrapper #disease-output-text {
-		display: inline !important;
-	}
-
 	.page_banner__wrapper .rith-side .wrap .form-group .label {
 		margin-top: auto !important;
+	}
+
+	.page_banner__wrapper #disease-output-text {
+		display: inline;
+	}
+
+	.prescription__wrapper .card .form #name-output-text {
+	    opacity: 1;
+	    color: $black;
+	    font-size: 16px;
+	    display: initial;
+	    line-height: 32px;
+	    max-width: 490.89px;
+	    min-width: 490.89px;
+	}
+
+	.prescription__wrapper .card .form-group.operation_wrap {
+	    display: inline-block !important;
+	}
+
+	.prescription__wrapper .card .form-group.operation_wrap .label {
+	    width: 100% !important;
+		text-align: left !important;
+	}
+
+	#operation-name, #operation-details {
+		display: none;
 	}
 
 	.prescription__wrapper .card .procedure textarea {

@@ -151,8 +151,6 @@ $(document).ready(function () {
                                     <option value="">খালি পেতে খাবেন</option>
                                     <option value="">খাবার আগে খাবেন</option>
                                     <option value="">খাওয়ার পরে খাবেন</option>
-                                    <option value="">ক্ষত স্থানে লাগাবেন</option>
-                                    <option value="">কাটা স্থানে লাগাবেন</option>
                                     <option value="">চুষে খাবেন</option>
                                 </select>
                             </div>
@@ -189,26 +187,30 @@ $(document).ready(function () {
 
     // Function to update output div based on input value
     function updateOutput(inputElement, outputDiv) {
-        if (outputDiv) {
-            if (inputElement.tagName === 'SELECT' && inputElement.multiple) {
-                const selectedOptions = Array.from(inputElement.selectedOptions)
-                    .map((option, index) => `${index + 1}. ${option.value}`)
-                    .join(', ');
-                outputDiv.textContent = selectedOptions;
-            } else {
-                outputDiv.textContent = inputElement.value.trim();
-            }
-            console.log(`Updating output: ${outputDiv.textContent}`);
-        }
+        outputDiv.textContent = inputElement.value.trim();
     }
 
-    ['operation-name', 'operation-details', 'disease', 'anesthetist', 'surgeon', 'assistant'].forEach(id => {
-        const element = document.getElementById(id);
-        const output = document.getElementById(`${id}-output-text`); 
-        
-        if (element && output) {
-            const eventType = element.tagName === 'SELECT' ? 'change' : 'input';
-            element.addEventListener(eventType, () => updateOutput(element, output));
-        }
-    });
+    // Handle 'Name of operation' input field
+    const inputField = document.getElementById('operation-name');
+    const nameOutputDiv = document.getElementById('name-output-text');
+
+    inputField.addEventListener('input', () => updateOutput(inputField, nameOutputDiv));
+
+    // Handle textarea for operation details
+    const textarea = document.getElementById('operation-details');
+    const detailsOutputDiv = document.getElementById('details-output-text');
+
+    textarea.addEventListener('input', () => updateOutput(textarea, detailsOutputDiv));
+
+    // Handle disease input (Bangla)
+    const diseaseField = document.getElementById('disease');
+    const diseaseOutputDiv = document.getElementById('disease-output-text');
+
+    diseaseField.addEventListener('input', () => updateOutput(diseaseField, diseaseOutputDiv));
+
+    // Initialize output divs with current content
+    updateOutput(inputField, nameOutputDiv);
+    updateOutput(textarea, detailsOutputDiv);
+    updateOutput(diseaseField, diseaseOutputDiv);
+
 });

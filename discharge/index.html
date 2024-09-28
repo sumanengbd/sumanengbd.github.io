@@ -12,10 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
-    <link href="css/plugins.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/plugins.min.css" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
 </head>
-
 <body>
 	<div class="buttongroup">
 		<button id="print" class="button">প্রিন্ট করুন</button>	
@@ -173,7 +172,8 @@
 								
 								<div class="form-group d-flex align-items-end">
 						        	<label for="disease" class="label text-nowrap">তিনি</label>
-						            <input type="text" class="form-control" id="disease">
+						            <input type="text" class="form-control d-print-none" id="disease">
+						            <div id="disease-output-text" class="print-border-bottom d-none d-print-inline-block">রোগের নাম</div>
 						            <label class="label text-nowrap">রোগে ভুগিতেছেন |</label>
 								</div>
 					        </div>
@@ -221,10 +221,12 @@
 								</div> 
 					        </div>
 
-					        <div class="form-group d-flex align-items-end">
-					        	<label class="label text-nowrap">Name of operation:</label>
-					            <input type="text" class="form-control">
-					        </div>
+					        <div class="form-group operation_wrap d-flex align-items-end">
+							    <label class="label text-nowrap">Name of operation:</label>
+							    <input type="text" class="form-control d-print-none" id="operation-name">
+
+							    <div id="operation-name-output-text" class="print-border-bottom d-none d-print-block">অপারেশন এর নাম</div>
+							</div>
 
 					        <div class="form-group d-flex align-items-end">
 					        	<label class="label text-nowrap">Indication:</label>
@@ -239,54 +241,47 @@
 					        <div class="form-group option d-flex align-items-end">
                                 <label class="label text-nowrap">Anesthetist:</label>
 
-                                <div class="state-filter">
-                                    <select name="">
-                                        <option value="">Dr. Asaduzzaman Asad, MBBS, BCS (H), UHFPO, DA</option>
-                                        <option value="">Dr. Tasmi Tamanna, MBBS, PGT (Gynae and Obs)</option>
-                                        <option value="">Dr. Afsana Akter, MBBS, PGT (Gynae and Obs)</option>
-                                        <option value="">Dr. Aktaruzzaman, MBBS, FCGP, DA</option>
-                                        <option value="">Dr. Rowshonara Rupa, MBBS, BCS, DA</option>
+                                <div class="state-filter d-print-none">
+                                    <select id="anesthetist">
+                                        <option value="Dr. Asaduzzaman Asad, MBBS, BCS (H), UHFPO, DA">Dr. Asaduzzaman Asad, MBBS, BCS (H), UHFPO, DA</option>
+                                        <option value="Dr. Tasmi Tamanna, MBBS, PGT (Gynae and Obs)">Dr. Tasmi Tamanna, MBBS, PGT (Gynae and Obs)</option>
+                                        <option value="Dr. Afsana Akter, MBBS, PGT (Gynae and Obs)">Dr. Afsana Akter, MBBS, PGT (Gynae and Obs)</option>
+                                        <option value="Dr. Aktaruzzaman, MBBS, FCGP, DA">Dr. Aktaruzzaman, MBBS, FCGP, DA</option>
+                                        <option value="Dr. Rowshonara Rupa, MBBS, BCS, DA">Dr. Rowshonara Rupa, MBBS, BCS, DA</option>
                                     </select>
                                 </div>
+                                <div id="anesthetist-output-text" class="print-border-bottom d-none d-print-block">Dr. Asaduzzaman Asad, MBBS, BCS (H), UHFPO, DA</div>
                             </div>
 
 					        <div class="form-group option d-flex align-items-end">
                                 <label class="label text-nowrap">Surgeon:</label>
 
-                                <div class="state-filter">
-                                    <select name="">
-                                        <option value="">Dr. Asaduzzaman Asad, MBBS, BCS (H), UHFPO, DA</option>
-                                        <option value="">Dr. Tasmi Tamanna, MBBS, PGT (Gynae and Obs)</option>
-                                        <option value="">Dr. Afsana Akter, MBBS, PGT (Gynae and Obs)</option>
-                                        <option value="">Dr. Aktaruzzaman, MBBS, FCGP, DA</option>
-                                        <option value="">Dr. Rowshonara Rupa, MBBS, BCS, DA</option>
-                                        <option value="">Dr. Mahabubul Alam Rana, MBBS, BCS, FCPS</option>
+                                <div class="state-filter d-print-none">
+                                    <select id="surgeon">
+                                        <option value="Dr. Asaduzzaman Asad, MBBS, BCS (H), UHFPO, DA">Dr. Asaduzzaman Asad, MBBS, BCS (H), UHFPO, DA</option>
+                                        <option value="Dr. Tasmi Tamanna, MBBS, PGT (Gynae and Obs)">Dr. Tasmi Tamanna, MBBS, PGT (Gynae and Obs)</option>
+                                        <option value="Dr. Afsana Akter, MBBS, PGT (Gynae and Obs)">Dr. Afsana Akter, MBBS, PGT (Gynae and Obs)</option>
+                                        <option value="Dr. Aktaruzzaman, MBBS, FCGP, DA">Dr. Aktaruzzaman, MBBS, FCGP, DA</option>
+                                        <option value="Dr. Rowshonara Rupa, MBBS, BCS, DA">Dr. Rowshonara Rupa, MBBS, BCS, DA</option>
+                                        <option value="Dr. Mahabubul Alam Rana, MBBS, BCS, FCPS">Dr. Mahabubul Alam Rana, MBBS, BCS, FCPS</option>
                                     </select>
                                 </div>
+
+                                <div id="surgeon-output-text" class="print-border-bottom d-none d-print-block">Dr. Asaduzzaman Asad, MBBS, BCS (H), UHFPO, DA</div>
                             </div>
 
 					        <div class="form-group option d-flex align-items-end">
                                 <label class="label text-nowrap">Assistant:</label>
 
-                                <div class="state-filter">
-                                    <select name="">
-                                        <option value="">1. Dr. Mizanur Rahman, DMF</option>
-                                        <option value="">1. Mst. Faima Khatun, SSN</option>
-                                        <option value="">1. Mst. Shiuly Khatun, SSN</option>
+                                <div class="state-filter d-print-none">
+                                    <select id="assistant" multiple>
+                                        <option value="Dr. Mizanur Rahman, DMF">Dr. Mizanur Rahman, DMF</option>
+                                        <option value="Mst. Faima Khatun, SSN">Mst. Faima Khatun, SSN</option>
+                                        <option value="Mst. Shiuly Khatun, SSN">Mst. Shiuly Khatun, SSN</option>
                                     </select>
                                 </div>
-                            </div>
 
-					        <div class="form-group option d-flex align-items-end">
-                                <label class="label text-nowrap opacity-0">Assistant:</label>
-
-                                <div class="state-filter">
-                                    <select name="">
-                                        <option value="">1. Dr. Mizanur Rahman, DMF</option>
-                                        <option value="">1. Mst. Faima Khatun, SSN</option>
-                                        <option value="">1. Mst. Shiuly Khatun, SSN</option>
-                                    </select>
-                                </div>
+                                <div id="assistant-output-text" class="print-border-bottom d-none d-print-block">1. Dr. Mizanur Rahman, DMF</div>
                             </div>
 						</div>
 
@@ -297,10 +292,11 @@
 
 							<div class="form">
 								<div class="form-group">
-									<textarea class="form-control" id="" rows="5">With all asceptic precautions abdomen was opened by pfnanstiel incision. Bleeding was controlled. A Male baby of 2.3kg was delivered by LUCS. Placenta was removed clearly. Uterine cavity was cleaned properly. Uterus was closed by catgut 2 with interrept suture. Abdomen was cleaned by mopping. Instruments were counted by SSN. Then abdomen was closed by layers.</textarea>
+								    <textarea class="form-control d-print-none" id="operation-details" rows="5">With all aseptic precautions, the abdomen was opened by Pfannenstiel incision. Bleeding was controlled. A male baby of 2.3kg was delivered by LUCS. Placenta was removed clearly. Uterine cavity was cleaned properly. Uterus was closed by catgut 2 with interrupted suture. Abdomen was cleaned by mopping. Instruments were counted by SSN. Then abdomen was closed by layers.</textarea>
+								    <div id="operation-details-output-text" class="d-none d-print-block">With all aseptic precautions, the abdomen was opened by Pfannenstiel incision. Bleeding was controlled. A male baby of 2.3kg was delivered by LUCS. Placenta was removed clearly. Uterine cavity was cleaned properly. Uterus was closed by catgut 2 with interrupted suture. Abdomen was cleaned by mopping. Instruments were counted by SSN. Then abdomen was closed by layers.</div>
 								</div>
 
-								<div class="form-group d-flex align-items-end">
+								<div class="form-group d-flex align-items-end mb-0">
 									<span class="d-inline text-nowrap">Baby Note</span>
 
 									<div class="wrap d-flex align-items-end">
@@ -313,12 +309,12 @@
 		                                </div>
 									</div>
 
-									<div class="form-group d-flex align-items-end">
+									<div class="wrap d-flex align-items-end">
 							        	<label for="weight" class="label text-nowrap">Weight:</label>
 							            <input type="text" class="form-control" id="weight">
 							        </div>
 
-									<div class="form-group d-flex align-items-end">
+									<div class="wrap d-flex align-items-end">
 							        	<label for="as" class="label text-nowrap">A/S:</label>
 							            <input type="text" class="form-control" id="as">
 							        </div>
@@ -362,6 +358,8 @@
 													    <option value="">খালি পেতে খাবেন</option>
 													    <option value="">খাবার আগে খাবেন</option>
 													    <option value="">খাওয়ার পরে খাবেন</option>
+													    <option value="">ক্ষত স্থানে লাগাবেন</option>
+													    <option value="">কাটা স্থানে লাগাবেন</option>
 													    <option value="">চুষে খাবেন</option>
 													</select>
 												</div>
@@ -386,7 +384,7 @@
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery.min.js"></script>
-	<script src="js/plugins.js"></script>
+	<script src="js/plugins.min.js"></script>
 	<script src="js/scripts.min.js"></script>
 </body>
 </html>
