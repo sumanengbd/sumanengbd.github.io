@@ -95,98 +95,6 @@ $(document).ready(function () {
     var currentDate = $.datepicker.formatDate('dd MM, yy', new Date());
     $(".datepicker").val(convertToBengaliNumber(currentDate));
 
-    $(document).ready(function() {
-        let medicineOptions = [];
-
-        Papa.parse("images/medicine.csv", {
-            download: true,
-            header: true,
-            complete: function(results) {
-                results.data.forEach(function(medicine) {
-                    if (medicine.Name && medicine.DrugTypeShort) { 
-                        const optionValue = medicine.Strength ? `${medicine.DrugTypeShort}. ${medicine.Name} - ${medicine.Strength}` : `${medicine.DrugTypeShort}. ${medicine.Name}`;
-
-                        const option = new Option(optionValue, optionValue, false, false);
-
-                        medicineOptions.push(option);
-                    }
-                });
-
-                $('.medicine-select').each(function() {
-                    const $select = $(this);
-                    medicineOptions.forEach(option => $select.append(option.cloneNode(true)));
-                    $select.select2({
-                        placeholder: "Select a medicine",
-                        allowClear: true
-                    });
-                });
-            }
-        });                             
-
-        function addNewListItem(targetListId) {
-            var $list = $(targetListId);
-            var newItem = `
-                <li class="rxcard_list--item">
-                    <div class="select_option">
-                        <select class="select2 medicine-select" name="medicine"></select>
-                    </div>
-                    <ul class="select_option-wrap list-unstyled">
-                        <li>
-                            <div class="state-filter">
-                                <select name="">
-                                    <option value="">১ + ১ + ১</option>
-                                    <option value="">১ + ১ + ০</option>
-                                    <option value="">১ + ০ + ১</option>
-                                    <option value="">০ + ১ + ১</option>
-                                    <option value="">১ + ০ + ০</option>
-                                    <option value="">০ + ১ + ০</option>
-                                    <option value="">০ + ০ + ১</option>
-                                </select>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="state-filter">
-                                <select name="">
-                                    <option value="">ভরা পেটে খাবেন</option>
-                                    <option value="">খালি পেতে খাবেন</option>
-                                    <option value="">খাবার আগে খাবেন</option>
-                                    <option value="">খাওয়ার পরে খাবেন</option>
-                                    <option value="">ক্ষত স্থানে লাগাবেন</option>
-                                    <option value="">কাটা স্থানে লাগাবেন</option>
-                                    <option value="">চুষে খাবেন</option>
-                                </select>
-                            </div>
-                        </li>
-                        <li><span contenteditable="true">৭ দিন</span></li>
-                    </ul>
-                    <button type="button" class="remove-item">✖</button>
-                </li>
-            `;
-
-            $list.append(newItem);
-            const $newSelect = $list.find('select.medicine-select').last();
-
-            // Add the stored options to the new select element
-            medicineOptions.forEach(option => $newSelect.append(option.cloneNode(true)));
-
-            $newSelect.select2({
-                width: '100%',
-                placeholder: "Select an option",
-                allowClear: true
-            });
-
-            // Attach event listener to the remove button
-            $list.find('.remove-item').last().click(function () {
-                $(this).closest('.rxcard_list--item').remove();
-            });
-        }
-
-        // Event listener for adding new list items
-        $(".addnew_rx").click(function () {
-            addNewListItem($(this).data('target'));
-        });
-    });
-
     // Function to update output div based on input value
     function updateOutput(inputElement, outputDiv) {
         if (outputDiv) {
@@ -210,5 +118,83 @@ $(document).ready(function () {
             const eventType = element.tagName === 'SELECT' ? 'change' : 'input';
             element.addEventListener(eventType, () => updateOutput(element, output));
         }
+    });
+
+    // Array to hold medicine options
+    let medicineOptions = [];
+
+    Papa.parse("images/medicine.csv", {
+        download: true,
+        header: true,
+        complete: function(results) {
+            medicineOptions = results.data.filter(medicine => medicine.Name && medicine.DrugTypeShort);
+            initializeSelect2($('.medicine-select'));
+        }
+    });
+
+    // Function to initialize Select2
+    function initializeSelect2($selectElement) {
+        $selectElement.select2({
+            width: '100%',
+            placeholder: "Select a medicine",
+            allowClear: true,
+            minimumInputLength: 2,
+            ajax: {
+                delay: 250,
+                data: function (params) {
+                    return {
+                        search: params.term
+                    };
+                },
+                processResults: function (data, params) {
+                    const searchTerm = params.term ? params.term : '';
+
+                    // Create a regex pattern to match any part of the string, handling special characters
+                    const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+
+                    // Use regex to filter results
+                    const results = medicineOptions.filter(medicine => {
+                        const name = medicine.Name ? medicine.Name : '';
+                        const drugType = medicine.DrugTypeShort ? medicine.DrugTypeShort : '';
+                        const strength = medicine.Strength ? medicine.Strength : '';
+
+                        return regex.test(`${drugType} ${name} ${strength}`);
+                    });
+
+                    return {
+                        results: results.map(medicine => ({
+                            id: `${medicine.DrugTypeShort}. ${medicine.Name} - ${medicine.Strength || ''}`,
+                            text: `${medicine.DrugTypeShort}. ${medicine.Name} - ${medicine.Strength || ''}`,
+                        }))
+                    };
+                },
+                cache: true
+            }
+        });
+
+        const $existingListings = $selectElement.data('existing-values');
+        if ($existingListings && $existingListings.length) {
+            $selectElement.val($existingListings).trigger('change');
+        }
+    }
+
+    function addNewListItem(targetListId) {
+        const $list = $(targetListId);
+        const newItem = `<li class="rxcard_list--item"><div class="select_option"><select class="select2 medicine-select" name="medicine"></select></div><ul class="select_option-wrap list-unstyled"><li><div class="state-filter"><select name=""><option value="">১ + ১ + ১</option><option value="">১ + ১ + ০</option><option value="">১ + ০ + ১</option><option value="">০ + ১ + ১</option><option value="">১ + ০ + ০</option><option value="">০ + ১ + ০</option><option value="">০ + ০ + ১</option></select></div></li><li><div class="state-filter"><select name=""><option value="">ভরা পেটে খাবেন</option><option value="">খালি পেতে খাবেন</option><option value="">খাবার আগে খাবেন</option><option value="">খাওয়ার পরে খাবেন</option><option value="">ক্ষত স্থানে লাগাবেন</option><option value="">কাটা স্থানে লাগাবেন</option><option value="">চুষে খাবেন</option></select></div></li><li><span contenteditable="true">৭ দিন</span></li></ul><button type="button" class="remove-item">✖</button></li>`;
+
+        $list.append(newItem);
+        const $newSelect = $list.find('select.medicine-select').last();
+        
+        // Initialize Select2 for the newly added select element
+        initializeSelect2($newSelect);
+
+        // Remove item event handler
+        $list.find('.remove-item').last().click(function () {
+            $(this).closest('.rxcard_list--item').remove();
+        });
+    }
+
+    $(".addnew_rx").click(function () {
+        addNewListItem($(this).data('target'));
     });
 });
